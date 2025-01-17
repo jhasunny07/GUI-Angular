@@ -1,0 +1,32 @@
+<div class="chart-container">
+    <!-- Sales Chart Section -->
+    <div class="chart-widget">
+      <div class="chart-header" (click)="toggleSalesChart()">
+        <h4>Sales Graph</h4>
+        <i [class]="isSalesChartOpen ? 'fa fa-chevron-up' : 'fa fa-chevron-down'"></i>
+      </div>
+      <div *ngIf="isSalesChartOpen" class="chart-body">
+        <canvas baseChart
+          [data]="salesChartData"
+          [options]="chartOptions"
+          [type]="salesChartType">
+        </canvas>
+      </div>
+    </div>
+  
+    <!-- Browser Usage Chart Section -->
+    <div class="chart-widget">
+      <div class="chart-header" (click)="toggleBrowserChart()">
+        <h4>Browser Usage</h4>
+        <i [class]="isBrowserChartOpen ? 'fa fa-chevron-up' : 'fa fa-chevron-down'"></i>
+      </div>
+      <div *ngIf="isBrowserChartOpen" class="chart-body">
+        <canvas baseChart
+          [data]="browserUsageChartData"
+          [options]="chartOptions"
+          [type]="browserUsageChartType">
+        </canvas>
+      </div>
+    </div>
+  </div>
+  

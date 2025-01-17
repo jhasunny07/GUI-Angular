@@ -1,0 +1,264 @@
+html
+
+
+
+<div class="admin-container">
+  <h2>Create Surfing Quota Policy</h2>
+  <form (ngSubmit)="onSubmit()" class="surfing-policy-form">
+      <!-- Policy Name -->
+      <div class="form-group">
+          <label for="policyName">Policy Name*</label>
+          <input id="policyName" type="text" [(ngModel)]="policy.name" name="policyName" required />
+      </div>
+
+      <!-- Policy Type -->
+      <div class="form-group">
+          <label for="policyType">Policy Type*</label>
+          <select id="policyType" [(ngModel)]="policy.type" name="policyType" (change)="onPolicyTypeChange()" required>
+              <option value="absolute">Absolute</option>
+              <option value="ratebased">Rate-based</option>
+          </select>
+      </div>
+
+      <!-- Allotted Time -->
+      <div class="form-group" *ngIf="policy.type === 'absolute'">
+          <label for="allottedTime">Allotted Time (hours:minutes)*</label>
+          <input id="allottedTime" type="time" [(ngModel)]="policy.allottedTime" name="allottedTime" />
+      </div>
+
+      <!-- Unlimited Time -->
+      <div class="form-group">
+          <label for="unlimitedTime">
+              <input id="unlimitedTime" type="checkbox" [(ngModel)]="policy.unlimitedTime" name="unlimitedTime" (change)="onUnlimitedTimeChange()" />
+              Unlimited Time
+          </label>
+      </div>
+
+      <!-- Set Expiry -->
+      <div class="form-group" *ngIf="!policy.unlimitedTime">
+          <label for="expiry">Set Expiry After (Days)*</label>
+          <input id="expiry" type="number" [(ngModel)]="policy.expiry" name="expiry" min="1" />
+      </div>
+
+      <!-- Session Pulse -->
+      <div class="form-group">
+          <label for="sessionPulse">Session Pulse (minutes)*</label>
+          <input id="sessionPulse" type="number" [(ngModel)]="policy.sessionPulse" name="sessionPulse" min="1" required />
+      </div>
+
+      <!-- Cycle Type -->
+      <div class="form-group">
+          <label for="cycleType">Cycle Type*</label>
+          <select id="cycleType" [(ngModel)]="policy.cycleType" name="cycleType" required>
+              <option value="daily">Daily</option>
+              <option value="weekly">Weekly</option>
+              <option value="monthly">Monthly</option>
+              <option value="non-cyclic">Non-Cyclic</option>
+          </select>
+      </div>
+
+      <!-- Cycle Allotted Time -->
+      <div class="form-group" *ngIf="policy.cycleType !== 'non-cyclic'">
+          <label for="cycleTime">Cycle Allotted Time (hours:minutes)*</label>
+          <input id="cycleTime" type="time" [(ngModel)]="policy.cycleTime" name="cycleTime" />
+      </div>
+
+      <!-- Policy Description -->
+      <div class="form-group">
+          <label for="policyDescription">Policy Description*</label>
+          <textarea id="policyDescription" [(ngModel)]="policy.description" name="policyDescription" rows="3" required></textarea>
+      </div>
+
+      <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Create Policy</button>
+          <button type="reset" class="btn btn-secondary">Reset</button>
+      </div>
+  </form>
+</div>
+
+
+
+ts 
+
+
+
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { ManageSurfingQuotaPolicyComponent } from '../manage-surfing-quota-policy/manage-surfing-quota-policy.component';
+
+@Component({
+  selector: 'app-create-surfing-quota-policy',
+  standalone: true,
+  imports: [CommonModule, FormsModule],
+  templateUrl: './create-surfing-quota-policy.component.html',
+  styleUrls: ['./create-surfing-quota-policy.component.css']
+})
+export class CreateSurfingQuotaPolicyComponent {
+  policy = {
+    name: '',
+    type: 'Absolute', // Default: Absolute
+    allottedTime: '', // Time input is a string
+    unlimitedTime: false,
+    sessionPulse: 1,
+    expiry: null as number | null, // Allow null for expiry
+    unlimitedExpiry: false,
+    cycleType: 'Daily',
+    cycleAllottedTime: '',
+    cycleTime: '', 
+    description: ''
+  };
+
+  onPolicyTypeChange() {
+    // Handle changes to policy type, e.g., reset fields
+    if (this.policy.type === 'ratebased') {
+      this.policy.unlimitedTime = true; // Automatically set Unlimited Time when rate-based is selected
+      this.policy.allottedTime = ''; // Disable allotted time
+    }
+  }
+
+  // Method triggered when "Unlimited Time" is toggled
+  onUnlimitedTimeChange() {
+    if (this.policy.unlimitedTime) {
+      this.policy.allottedTime = ''; // Clear allotted time
+    }
+  }
+
+  // Method triggered when "Unlimited Expiry" is toggled
+  onUnlimitedExpiryChange() {
+    if (this.policy.unlimitedExpiry) {
+      this.policy.expiry = null; // Clear expiry
+    }
+  }
+
+  onSubmit() {
+    console.log('Policy created:', this.policy);
+    // Add logic to save the policy or make API calls here
+  }
+
+
+  
+}
+
+
+
+
+
+css
+
+/* Admin Panel Styles */
+.admin-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+  color: #34495e;
+}
+
+h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.surfing-policy-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+textarea {
+  resize: vertical;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 15px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+}
+
+.btn-secondary:hover {
+  background-color: #565e64;
+}
+
+/* Mobile responsiveness */
+@media screen and (max-width: 768px) {
+  .admin-container {
+    padding: 15px;
+  }
+
+  .form-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    font-size: 0.9rem;
+  }
+}
+

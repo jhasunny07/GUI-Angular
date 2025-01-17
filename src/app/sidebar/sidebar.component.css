@@ -1,0 +1,771 @@
+/* Sidebar.css */
+
+/* Body styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Sidebar styles */
+  .sidebar {
+    list-style: none;
+    position: fixed; /* Fixed position on the left */
+    top: 70px;
+    left: 0;
+    width: 70px; /* Fixed width */
+    height: 100%; /* Full height */
+    background-color: #f4f4f4;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+  }
+  
+
+/* Ensure the second-sidebar shows in mobile view */
+@media (max-width: 768px) {
+  .second-sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background: #fff;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .sidebar-container.shifted .second-sidebar {
+    transform: translateX(0);
+  }
+}
+
+
+  .sidebar.dark {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  .menu-btn {
+    font-size: 24px; /* Adjust the size of the icon */
+    background: transparent;
+    border: none;
+    color: #333; /* Change the icon color */
+    cursor: pointer;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .menu-btn:hover {
+    color: #007BFF; /* Change icon color on hover */
+  }
+  
+  .sidebar-menu {
+    list-style: none;
+    gap: 10px;
+    padding: 0;
+    margin: 30px 0px 30px 0px;
+  }
+  
+  .sidebar-menu li h6 {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    font-size: 10px;
+  }
+  
+  .sidebar-item {
+   
+    font-size: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 10px;
+  }
+  
+  .sidebar-footer {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+  }
+  
+  
+  
+  /* Nested menu for second sidebar toggle */
+  .nested-menu {
+    list-style: none;
+    padding-left: 20px;
+  }
+  
+  .nested-menu li {
+    cursor: pointer;
+    padding: 5px 0;
+  }
+  
+  /* Main content styling */
+  .main-content {
+ 
+    padding: 20px;
+  }
+  
+  /* Second Sidebar (will appear beside the first sidebar) */
+  .second-sidebar {
+    position: fixed;
+    top: 76px;
+    left: 70px;
+    width: 200px;
+    background-color: #ddd;
+    color: #333;
+    padding: 15px 0 20px 20px;
+    height: 75vh;
+    z-index: 999;
+    transition: transform 0.3s ease;
+    overflow: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #007bff #f1f1f1;
+    scroll-behavior: smooth;
+    border-radius: 6px;
+    box-shadow: 4px 5px 5px rgba(0, 0, 0, 0.5);
+  }
+
+
+
+  /* Custom Scrollbar Styles */
+  #homeSidebar .submenu::-webkit-scrollbar {
+    width: 8px;
+}
+
+#homeSidebar .submenu::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 5px;
+}
+
+#homeSidebar .submenu::-webkit-scrollbar-thumb {
+    background: #007bff;
+    border-radius: 5px;
+}
+
+#homeSidebar .submenu::-webkit-scrollbar-thumb:hover {
+    background: #0056b3;
+}
+
+
+
+  .second-sidebar ul {
+    padding: 0;
+   
+  }
+
+  .second-sidebar li {
+    
+    list-style: none;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 12px;    
+    padding: 0 10px 0 10px;
+  }
+
+  .second-sidebar li:hover {
+   
+    color: #079cc6;
+   
+  }
+  
+  
+  
+  .second-sidebar li a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  
+  .second-sidebar h {
+    
+    color: #007bff;
+  }
+  
+  
+  
+  /* Adjust when second sidebar is visible */
+  .sidebar-container.shifted .sidebar {
+    transform: translateX(0); /* Main sidebar stays in place */
+  }
+  
+  .sidebar-container.shifted .second-sidebar {
+    transform: translateX(6px) ;
+  }
+  
+  @media (max-width: 768px) {
+    .sidebar-container.shifted .second-sidebar {
+      transform: translateX(-30px) translateY(5px); /* Move upwards by 10px */
+    }
+  }
+
+
+  /*changes skdjhasjdhjaskdhjashdjhasjhdjkashd*/
+
+
+/* Sidebar styles */
+.sidebar-container {
+    display: flex;
+    transition: all 0.3s ease;
+  }
+  
+  
+  
+ 
+
+  
+
+  .sidebar-item h6 {
+    margin: 0;
+    font-size: 14px;
+  }
+  
+  /* Second Sidebar */
+  
+  
+ 
+  
+  /* Main content shifts */
+  .sidebar-container.shifted .main-content {
+    margin-left: 300px;
+  }
+  
+ 
+  /* Additional CSS for App container */
+.app-container {
+    position: fixed;
+    top: 65px;
+    right: 0;
+    width: 300px;
+    height: 100%;
+    background-color: #f4f4f4;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+  }
+  
+  .app-container ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .app-container ul li {
+    margin: 10px 0;
+  }
+  
+  .submenu-heading {
+    margin-bottom: 20px; 
+  }
+
+  /* App Icon */
+
+
+  .submenu-container {
+    padding: 1rem;
+  }
+  
+  .submenu-header {
+    display: flex;            /* Use Flexbox for alignment */
+    align-items: center;      /* Vertically center the items */
+    gap: 0.5rem;              /* Add space between the button and heading */
+  }
+
+ .submenu-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px ;
+ }
+
+
+
+.back-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #007bff; /* Blue color for the icon */
+  font-size: 20px;
+  margin-right: 10px; /* Space between the back button and the heading */
+  display: flex;
+  align-items: center;
+}
+
+.back-button:hover {
+  color: #0056b3; /* Darker blue on hover */
+}
+
+.submenu-header h6 {
+  margin: 0;
+  font-size: 18px;
+  color: #333; /* Dark text color for better readability */
+  text-align: left;
+  flex-grow: 1; /* Pushes the heading to take up available space */
+}
+
+  
+  .back-button {
+    background-color: transparent; /* Transparent button background */
+    border: none;                 /* Remove border */
+    color: #007bff;               /* Icon color */
+    font-size: 20px;            /* Icon size */
+    cursor: pointer;              /* Pointer cursor */
+    display: flex;                /* Ensure icon is centered */
+    align-items: center;
+                /* Add padding for better click area */
+    transition: color 0.3s ease;  /* Smooth hover effect */
+  }
+  
+  .back-button:hover {
+    color: #0056b3;               /* Darker blue on hover */
+  }
+  
+
+  
+
+
+
+ 
+ 
+  .back-button:focus {
+    outline: none;                /* Remove focus outline */
+    color: #003d80;               /* Slightly darker hover effect on focus */
+  }
+  
+
+
+/* Adjust spacing for menu button and sidebar menu */
+
+
+/* App Sidebar */
+.app-sidebar {
+  position: fixed;
+  top: 10.1%;
+  left: 5.4%;
+  width: 300px;
+  height: 400px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  padding: 20px;
+}
+
+/* App Sidebar */
+.app-icon {
+  position: relative;
+  font-size: 30px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #007bff; /* Bootstrap blue for visibility */
+  top: 0px;
+ 
+  z-index: 1050; /* Ensure it is above the content */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); 
+  margin-top: 20px;
+}
+
+
+@media screen and (max-width: 768px) {
+  .app-icon {
+  position: relative;
+  font-size: 30px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #007bff; /* Bootstrap blue for visibility */
+  top: -10px;
+  left: 10px;
+  z-index: 1; /* Ensure it is above the content */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Add shadow to make it stand out */
+  
+  }
+
+  
+}
+
+
+
+.app-sidebar h3 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.app-grid {
+  left: 50%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.app-tile {
+  background: #007bff;
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+  text-decoration: none;
+}
+
+.app-tile:hover {
+  background: #0056b3;
+}
+
+.close-app-sidebar {
+  margin-top: 20px;
+  background: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.close-app-sidebar:hover {
+  background: #b02a37;
+}
+
+
+
+.app-icon:hover {
+  background-color: #007bff; /* Blue background on hover */
+  color: white; /* White icon on hover */
+}
+
+/* Custom Scrollbar Styles */
+.app-content-sidebar {
+  position: fixed;
+  top: 70px;
+  left: -100%; /* Initially hidden */
+  height: 91vh;
+  width: 80%;
+  background-color: #f9f9f9;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  transition: left 0.4s ease-out; /* Smooth transition for slide */
+  z-index: 998;
+  overflow-y: auto;
+  overflow-x: hidden;
+  
+}
+
+/* Custom Scrollbar Track (background of the scrollbar) */
+.app-content-sidebar::-webkit-scrollbar {
+  width: 8px; /* Set the width of the scrollbar */
+  height: 8px; /* Set the height for horizontal scrollbar */
+}
+
+/* Scrollbar Thumb (the draggable part) */
+.app-content-sidebar::-webkit-scrollbar-thumb {
+  background-color: #007bff; /* Blue color for the thumb */
+  border-radius: 10px; /* Rounded corners for the thumb */
+  border: 2px solid #f1f1f1; /* Subtle border for contrast */
+  transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+/* Hover effect on the thumb */
+.app-content-sidebar::-webkit-scrollbar-thumb:hover {
+  background-color: #0056b3; /* Darker blue when hovered */
+}
+
+/* Custom Scrollbar Track (background of the scrollbar) */
+.app-content-sidebar::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Light gray track background */
+  border-radius: 10px; /* Rounded corners for track */
+}
+
+/* Optional: Add a shadow effect to the scrollbar thumb */
+.app-content-sidebar::-webkit-scrollbar-thumb:active {
+  background-color: #004085; /* Even darker color when active */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.app-content-sidebar.darkmode {
+  background-color: #121212;
+}
+
+/* Media Query for Mobile Devices */
+@media screen and (max-width: 768px) {
+  /* Sidebar shifts to the bottom */
+  .sidebar {
+    position: fixed;
+    top: auto;
+    bottom: -1px;
+    left: 0;
+    width: 100%; /* Full width at the bottom */
+    height: 60px; /* Adjust height as needed */
+    display: flex; /* Align items horizontally */
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3); /* Shadow on top */
+    z-index: 1000;
+    padding: 0;
+  }
+
+  .sidebar-menu {
+    display: flex; /* Make the menu items horizontal */
+    flex-direction: row;
+    margin: 0;
+  }
+  .app-icon {
+    font-size: 36px; /* Increase the font size to make the icon bigger */
+  }
+
+  .sidebar-item {
+    padding: 0;
+    margin: 0 10px; /* Add spacing between items */
+    font-size: 20px; /* Reduce font size for mobile */
+  }
+
+  /* Second Sidebar Hidden on Mobile */
+  .second-sidebar {
+    display: none; /* Hide the second sidebar for mobile devices */
+  }
+
+  /* AppContent Sidebar Adjustments */
+  .app-content-sidebar {
+    height: 90vh; /* Adjust height to avoid overlapping the bottom bar */
+  }
+
+  .main-content {
+    margin-top: 0; /* Reset margin on mobile */
+  }
+}
+
+
+
+@media (max-width: 768px) {
+  .app-content-sidebar {
+    left: 0 ; /* Start from the left for mobile view */
+    width: 100%; /* Full width */
+    height: 80.5vh; /* Full height on mobile screens */
+  }
+
+   .app-content-sidebar.open {
+    left: 0 !important;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Dark mode global styling */
+body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+body.dark-mode a {
+  color: #90caf9;
+}
+
+body.dark-mode h3 {
+  color: #ffffff;
+}
+
+/* Dark mode styling for Sidebar */
+
+body.dark-mode .sidebar {
+  background-color: #1e1e1e;
+}
+
+body.dark-mode .second-sidebar {
+  background-color: #1e1e1e;
+}
+
+/* Dark mode toggle switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 34px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+
+@media screen and (max-width: 768px) {
+  .switch {
+    display: none;
+  }
+
+
+    .sidebar {
+        /* Reduce height on small screens */
+        padding: 0 10px; /* Optional: add some padding for small screens */
+        justify-content: space-evenly;
+    }
+
+   
+ 
+}
+
+input:checked + .slider:before {
+  transform: translateX(14px);
+}
+
+
+.app-content.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+
+
+/* Ensure the second sidebar is visible on small screens */
+@media (max-width: 768px) {
+  .second-sidebar {
+    display: block; /* Make it visible */
+    position: fixed;
+    top: 42%;
+    left: 50%;
+    width: 50%; /* Occupies 80% of the screen */
+    height: 50%; /* Full height */
+    background-color: #ddd; /* Background color */
+    z-index: 1000; /* Ensure it appears above other content */
+    transform: translateX(-100%); /* Initially hidden */
+    transition: transform 0.3s ease-in-out;
+  }
+
+  /* Add a class for when the second sidebar is open */
+  .second-sidebar.open {
+    transform: translateX(0); /* Slide into view */
+  }
+}
+
+
+
+
+
+.dropdown-container {
+    position: fixed;
+    background: #333;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1000;
+  }
+  
+  .dropdown-container ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .dropdown-container ul li {
+    margin: 5px 0;
+  }
+  
+  .dropdown-container ul li a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .submenu-item:hover {
+    cursor: pointer;
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+  
+  .submenu {
+    position: absolute;
+    left: 298px;
+    top: 76px;
+    background-color: #e0e0e0;
+    
+    width: 200px;
+    padding: 0px;
+    display: none;
+    z-index: 10;
+  }
+  
+  .submenu.active {
+    display: block;
+  }
+  
+  .submenu ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .submenu li {
+    padding: 8px;
+    cursor: pointer;
+  }
+  
+  .submenu li:hover {
+    background-color: #ddd;
+  }
+  
+
+
+
+
+  

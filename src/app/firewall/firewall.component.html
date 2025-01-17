@@ -1,0 +1,12 @@
+  <!-- App Detail View -->
+  <div id="appDetail" class="app-detail">
+    <h2 style="padding: 10px; display: flex; justify-content: center;">Firewall</h2>
+    <div class="tabs" >
+        <div class="tab" [routerLink]="['firewall-create']" routerLinkActive="active">Create</div>
+        <div class="tab" [routerLink]="['firewall-manage']" routerLinkActive="active">Manage</div>
+        <div class="tab" [routerLink]="['dos settings']" routerLinkActive="active">DoS Settings</div>
+        <div class="tab" [routerLink]="['dos bypass']" routerLinkActive="active"> DoS Bypass</div>
+        <div class="tab" [routerLink]="['free sites']" routerLinkActive="active"> Free Sites</div>
+    </div>
+    <router-outlet></router-outlet>
+  </div>

@@ -1,0 +1,22 @@
+
+<div>
+
+    <h1>Table</h1>
+
+<p-table [value]="cars" [paginator]="true" [rows]="10" [rowsPerPageOptions]="[10, 20, 30]" [responsiveLayout]="'scroll'">
+    <ng-template pTemplate="header">
+      <tr>
+        <th pSortableColumn="make">Make <p-sortIcon field="make"></p-sortIcon></th>
+        <th pSortableColumn="model">Model <p-sortIcon field="model"></p-sortIcon></th>
+        <th pSortableColumn="price">Price <p-sortIcon field="price"></p-sortIcon></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-car>
+      <tr>
+        <td>{{ car.make }}</td>
+        <td>{{ car.model }}</td>
+        <td>{{ car.price }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

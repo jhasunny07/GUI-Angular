@@ -1,0 +1,10 @@
+
+  <!-- App Detail View -->
+  <div id="appDetail" class="app-detail">
+    <h2 style="padding: 10px; display: flex; justify-content: center;">Surfing Quota</h2>
+    <div class="tabs" >
+        <div class="tab" [routerLink]="['CreateSurfingQuotaPolicy']" routerLinkActive="active">Create Surfing Quota</div>
+        <div class="tab" [routerLink]="['ManageSurfingQuotaPolicy']" routerLinkActive="active">Manage Surfing Quota</div>
+    </div>
+    <router-outlet></router-outlet>
+  </div>

@@ -1,0 +1,7 @@
+:host {
+    display: block;
+    width: 200px; /* Assign a fixed width */
+    margin: 10px; /* Optional spacing */
+border:  2px solid black;
+  }
+  

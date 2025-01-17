@@ -1,1 +1,107 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+/* app.component.css */
+
+/* .main-container {
+   
+    justify-content: center;
+    align-items: center;
+  
+    flex-direction: column;
+    height: 100vh;
+    box-sizing: border-box;
+    max-width: 100%;
+    width: 100%;
+  } */
+
+  @import 'primeng/resources/primeng.min.css';
+@import 'primeicons/primeicons.css';
+
+
+  /* styles.css */
+  .layout {
+    display: block; /* No flex layout for small screens */
+  }
+  
+  /* Styles for larger screens */
+  @media (min-width: 768px) {
+    .layout {
+      display: flex;
+      flex-direction: row;
+      height: 100vh; /* Full viewport height */
+    }
+    
+  }
+
+
+
+
+  
+.navbar {
+  width: 100%;
+  height: 60px; /* Fixed height */
+  background-color: #333; /* Example color */
+  color: white;
+  position: fixed;
+  top: 0;
+}
+
+.sidebar {
+  width: 70px; /* Fixed width */
+  height: 100%; /* Full height */
+  background-color: #444;
+  color: white;
+  position: fixed;
+  top: 60px; /* Below the navbar */
+}
+
+
+
+
+
+/* Default styles for small screens */
+.main-container {
+  margin-left: 0; /* No margin for small screens */
+  margin-top: 0;  /* No margin for small screens */
+ 
+  overflow-y: auto; /* Allow scrolling if needed */
+}
+
+/* Styles for larger screens */
+@media (min-width: 768px) {
+  .main-container {
+    margin-left: 80px; /* To make space for the sidebar */
+    margin-top: 70px;  /* To make space for the navbar */
+    flex-grow: 1;
+  
+    overflow-y: auto; /* For scrolling content */  /* Allow the container to grow */
+  }
+}
+
+
+
+.container, .container-lg, .container-md, .container-sm, .container-xl {
+  max-width: 100% !important;  /* Remove the max-width restriction */
+  width: 100% !important;     /* Ensure full width */
+}
+
+
+
+
+
+
+:root {
+  --primary-color: #324c68; /* Blue */
+  --secondary-color: #6c757d; /* Gray */
+  --success-color: #28a745; /* Green */
+  --danger-color: #dc3545; /* Red */
+  --warning-color: #ffc107; /* Yellow */
+  --info-color: #17a2b8; /* Teal */
+  --background-color: #f8f9fa; /* Light background */
+
+  --sidebar-bg-color: #2c3e50; /* Dark background for the sidebar */
+  --text-white-color: #ecf0f1; 
+  --main-content-bg-color: #ecf0f1; /* Background color for the main content area */
+  --text-light-color: #415053;
+}

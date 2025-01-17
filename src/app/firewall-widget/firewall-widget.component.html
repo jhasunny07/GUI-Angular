@@ -1,0 +1,26 @@
+<div class="firewall-widget-container">
+    <!-- Create Widget (Left) -->
+    <div class="firewall-widget left-widget">
+      <button class="collapsible" (click)="toggleCreate()">
+        <span *ngIf="!isCreateOpen">+</span>
+        <span *ngIf="isCreateOpen">-</span> Create Firewall Rule
+      </button>
+      <div class="widget-content" *ngIf="isCreateOpen">
+        <!-- Firewall Create Form -->
+        <app-firewall-create></app-firewall-create>
+      </div>
+    </div>
+  
+    <!-- Manage Widget (Right) -->
+    <div class="firewall-widget right-widget">
+      <button class="collapsible" (click)="toggleManage()">
+        <span *ngIf="!isManageOpen">+</span>
+        <span *ngIf="isManageOpen">-</span> Manage Firewall Rules
+      </button>
+      <div class="widget-content" *ngIf="isManageOpen">
+        <!-- Manage Firewall Table -->
+        <app-firewall-manage></app-firewall-manage>
+      </div>
+    </div>
+  </div>
+  

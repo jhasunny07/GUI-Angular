@@ -1,0 +1,166 @@
+<div class="firewall-create-container">
+    <h1>Create Firewall Rule</h1>
+    <form class="firewall-form" (ngSubmit)="onSubmit()" #firewallForm="ngForm">
+      <!-- Source & Destination Information -->
+      <fieldset>
+        <legend>Source & Destination Information</legend>
+        <div class="form-group">
+          <label for="sourceInfo">Source Domain Name / IP Address / Network*:</label>
+          <input
+            type="text"
+            id="sourceInfo"
+            name="sourceInfo"
+            class="form-control"
+            [(ngModel)]="firewallRule.sourceInfo"
+            placeholder="* for all"
+            required
+          />
+        </div>
+  
+        <div class="form-group">
+          <label for="destinationInfo">Destination Domain Name / IP Address / Network*:</label>
+          <input
+            type="text"
+            id="destinationInfo"
+            name="destinationInfo"
+            class="form-control"
+            [(ngModel)]="firewallRule.destinationInfo"
+            placeholder="* for all"
+            required
+          />
+        </div>
+  
+        <div class="form-group">
+          <label for="sourceMac">Source MAC Address:</label>
+          <input
+            type="text"
+            id="sourceMac"
+            name="sourceMac"
+            class="form-control"
+            [(ngModel)]="firewallRule.sourceMac"
+            placeholder="* for all"
+          />
+        </div>
+      </fieldset>
+  
+      <!-- Port Details -->
+      <fieldset>
+        <legend>Port Details</legend>
+        <div class="form-group">
+          <label for="sourcePort">Source Port*:</label>
+          <input
+            type="text"
+            id="sourcePort"
+            name="sourcePort"
+            class="form-control"
+            [(ngModel)]="firewallRule.sourcePort"
+            placeholder="* for all ports / 1:65535"
+            required
+          />
+        </div>
+  
+        <div class="form-group">
+          <label for="sourcePortType">Port Type*:</label>
+          <select
+            id="sourcePortType"
+            name="sourcePortType"
+            class="form-control"
+            [(ngModel)]="firewallRule.sourcePortType"
+            required
+          >
+            <option value="include">Include</option>
+            <option value="exclude">Exclude</option>
+          </select>
+        </div>
+  
+        <div class="form-group">
+          <label for="destinationPort">Destination Port*:</label>
+          <input
+            type="text"
+            id="destinationPort"
+            name="destinationPort"
+            class="form-control"
+            [(ngModel)]="firewallRule.destinationPort"
+            placeholder="* for all ports / 1:65535"
+            required
+          />
+        </div>
+  
+        <div class="form-group">
+          <label for="destinationPortType">Port Type*:</label>
+          <select
+            id="destinationPortType"
+            name="destinationPortType"
+            class="form-control"
+            [(ngModel)]="firewallRule.destinationPortType"
+            required
+          >
+            <option value="include">Include</option>
+            <option value="exclude">Exclude</option>
+          </select>
+        </div>
+      </fieldset>
+  
+      <!-- Network Protocol -->
+      <fieldset>
+        <legend>Network Protocol*</legend>
+        <div class="form-group protocol-options">
+          <label><input type="radio" name="protocol" [(ngModel)]="firewallRule.protocol" value="TCP" required /> TCP</label>
+          <label><input type="radio" name="protocol" [(ngModel)]="firewallRule.protocol" value="UDP" /> UDP</label>
+          <label><input type="radio" name="protocol" [(ngModel)]="firewallRule.protocol" value="ICMP" /> ICMP</label>
+          <label><input type="radio" name="protocol" [(ngModel)]="firewallRule.protocol" value="All Protocols" /> All Protocols</label>
+        </div>
+      </fieldset>
+  
+      <!-- Rule Action -->
+      <fieldset>
+        <legend>Rule Action</legend>
+        <div class="form-group">
+          <label for="action">Action*:</label>
+          <select
+            id="action"
+            name="action"
+            class="form-control"
+            [(ngModel)]="firewallRule.action"
+            required
+          >
+            <option value="" disabled>Select Here</option>
+            <option value="allow">Allow</option>
+            <option value="deny">Deny</option>
+          </select>
+        </div>
+      </fieldset>
+  
+      <!-- Time Restriction -->
+      <fieldset>
+        <legend>Time Restriction</legend>
+        <div class="form-group">
+          <label>Enable Time Allow:</label>
+          <label><input type="radio" name="timeAllow" [(ngModel)]="firewallRule.timeAllow" value="Yes" /> Yes</label>
+          <label><input type="radio" name="timeAllow" [(ngModel)]="firewallRule.timeAllow" value="No" /> No</label>
+        </div>
+      </fieldset>
+  
+      <!-- Description -->
+      <fieldset>
+        <legend>Description</legend>
+        <div class="form-group">
+          <label for="description">Description:</label>
+          <textarea
+            id="description"
+            name="description"
+            class="form-control"
+            [(ngModel)]="firewallRule.description"
+            rows="3"
+          ></textarea>
+        </div>
+      </fieldset>
+  
+      <!-- Buttons -->
+      <div class="button-group">
+        <button type="submit" class="btn btn-primary" [disabled]="firewallForm.invalid">Save</button>
+        <button type="button" class="btn btn-secondary" (click)="onCancel()">Cancel</button>
+      </div>
+    </form>
+  </div>
+  

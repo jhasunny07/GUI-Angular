@@ -1,0 +1,192 @@
+/* Right Sidebar Container */
+.right-sidebar {
+  position: fixed;
+  top: 70px;
+  right: 0;
+  width: 220px; /* Adjusted width */
+  height: 100%;
+  background-color: #f4f4f4;
+  box-shadow: -2px 0 6px rgba(0, 0, 0, 0.2);
+  z-index: 800;
+  padding: 15px;
+  border-radius: 10px 0 0 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Space between different sections */
+}
+
+/* Sidebar Content Styling */
+.sidebar-content {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+/* Flexbox for Title and Close Button in One Line */
+.settings-header {
+  display: flex;
+  justify-content: space-between; /* Space between title and button */
+  align-items: center;
+  width: 100%;
+}
+
+/* Close Button Styling */
+.close-btn {
+  background-color: transparent;
+  border: none;
+  color: #ff4c4c;
+  font-size: 22px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out, color 0.3s ease;
+}
+
+.close-btn:hover {
+  transform: scale(1.2);
+  color: #e60000;
+}
+
+/* Flexbox for Color Picker and Apply Button on Same Line */
+.color-picker-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+/* Color Picker Input Styling */
+#navbarColor, #sidebarColor {
+  width: 35px; /* Small width */
+  height: 30px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: transform 0.3s ease;
+}
+
+#navbarColor:hover, #sidebarColor:hover {
+  transform: scale(1.1);
+}
+
+/* Apply Button Styling */
+.apply-btn {
+  padding: 6px 12px;
+  font-size: 10px;
+  cursor: pointer;
+  background: linear-gradient(135deg, #ff7b00, #ff007f);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.apply-btn:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #ff5f00, #e60072);
+}
+
+.apply-btn:active {
+  transform: scale(1);
+}
+
+/* Sidebar Title Styling */
+.sidebar-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #0796cc;
+  text-align: center;
+  margin-bottom: 15px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.right-sidebar {
+  /* Add styles for the right sidebar container */
+  width: 250px;
+  background-color: #fff;
+
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-content {
+  /* Add padding to the content inside the sidebar */
+  padding: 10px;
+}
+
+.settings-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.sidebar-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #333;
+}
+
+.color-picker-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.color-picker-container label {
+  font-size: 14px;
+  color: #333;
+  margin-right: 10px;
+  width: 150px; /* Label width */
+}
+
+.color-picker-container input[type="color"] {
+  width: 35px;
+  height: 35px;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.color-picker-container input[type="text"] {
+  width: 60px;
+  padding: 5px;
+  margin-left: 10px;
+  font-size: 14px;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.apply-btn {
+  margin-left: 10px;
+  padding: 6px 12px;
+  font-size: 14px;
+  color: #fff;
+  background-color: #079cc6;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.apply-btn:hover {
+  background-color: #057c98;
+}
+
+.apply-btn:focus {
+  outline: none;
+}
+
+/* Optional: Style for the sidebar items */
+.sidebar-item h6 {
+  font-size: 16px;
+  color: #000;
+}

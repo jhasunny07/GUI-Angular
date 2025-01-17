@@ -1,0 +1,214 @@
+/* Global styles */
+.content {
+    padding: 20px 0px 20px 20px;
+    position: relative;
+  }
+  
+  /* App List Styles */
+  .app-list {
+    display: flex;
+   
+    gap: 10px;
+    list-style-type: none;
+    padding: 0;
+    
+    justify-content: flex-start;
+    cursor: pointer;
+    flex-wrap: wrap;
+    color: #007bff;
+  }
+  
+  /* App Item Styles */
+  .app-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100px;
+    position: relative;
+
+    margin-top: 10px;
+  }
+  
+  /* Hover effect for app items */
+  .app-item.hovered {
+    background-color: #e0e0e0;
+  }
+  
+  /* App Icon Style */
+  .app-icon {
+    font-size: 15px;
+    color: #007bff;
+    margin-bottom: 10px
+  }
+  
+  /* App Name Style */
+  .app-name {
+    margin-top: 5px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* Dropdown Styles */
+  .dropdown {
+    margin-bottom: 20px;
+    padding-left: 20px;
+    list-style-type: none;
+    position: absolute;
+    top: 0px;
+    left: 100%;
+    z-index: 9999;
+    background-color: #f9f9f9;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.9);
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden; /* Initially hidden */
+    width: 100px;
+    height: auto;
+    text-align: left;
+    font-size: 12px;
+    transition: opacity 0.3s ease;
+  }
+  
+  /* Dropdown show style */
+  .dropdown.show {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible; /* Visible on hover */
+  }
+  
+  /* Dropdown Item Styles */
+  .dropdown-item {
+    text-decoration: none;
+    color: #000;
+    display: block;
+    padding: 5px 10px;
+    margin: 5px 0;
+  }
+  
+  /* Dropdown Item Hover Effect */
+  .dropdown-item.hovered-child {
+    color: #007bff; /* Text color on hover */
+  }
+  
+  .app-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    padding: 10px 0;
+  }
+  
+  .app-item:hover .app-name {
+    color: #007bff;
+  }
+  
+  
+  @media (max-width: 768px) {
+    .app-list {
+      
+      align-items: flex-start;
+    }
+  
+    .mobile-menu-button {
+      display: block;
+    }
+  
+    .mobile-menu {
+      display: block;
+    }
+  
+    .dropdown {
+      position: relative;
+      top: auto;
+      left: auto;
+      display: block;
+      box-shadow: none;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .app-list {
+      
+      margin-right: 0;
+      gap: 5px;
+      justify-content: flex-start;
+    }
+  }
+  
+  /*--------------------------Changes--------------------------------------*/
+  
+
+  /* General Styles */
+.app-content {
+    padding: 20px 0px 20px 20px;
+    position: relative;
+  }
+  
+
+  
+  @media (max-width: 768px) {
+    .app-list {
+      margin-right: 20px;
+    }
+  }
+  
+  
+  
+  .app-item-hovered {
+    background-color: #e0e0e0; /* Hover background color */
+  }
+  
+ 
+  
+
+  
+  /* Dropdown Child Item Styles */
+  .dropdown-child {
+    text-decoration: none;
+    color: #000;
+    display: block;
+    padding: 5px 10px;
+    margin: 5px 0;
+  }
+  
+  /* Show Dropdown on Hover */
+  .dropdown-show {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible; /* Visible on hover */
+  }
+  
+  /* Hover Effect on Dropdown Children */
+  .dropdown-child-hovered {
+    color: #007bff; /* Change color on hover */
+  }
+
+  a {
+    text-decoration: none;
+
+  } 
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  

@@ -1,0 +1,51 @@
+<div class="right-sidebar" *ngIf="isOpen">
+  <div class="sidebar-content">
+    <!-- Settings Header with Title and Close Button on Same Line -->
+    <div class="settings-header">
+      <h6 class="sidebar-title">Settings</h6>
+      <button class="close-btn" (click)="toggleSidebar()">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+
+    <!-- Label for color input for Navbar -->
+    <label for="navbarColor">Choose Navbar Color:</label>
+    <div class="color-picker-container">
+      <!-- Color Picker -->
+      <input type="color" [(ngModel)]="selectedNavbarColor" (input)="applyNavbarColor()" />
+      <!-- Hex Code Input -->
+      <input type="text" [(ngModel)]="selectedNavbarColor" placeholder="#79ccc6" (input)="applyNavbarColor()" />
+      <button class="apply-btn" (click)="applyNavbarColor()">Apply</button>
+    </div>
+
+    <!-- Label for color input for Sidebar -->
+    <label for="sidebarColor">Choose Sidebar Color:</label>
+    <div class="color-picker-container">
+      <!-- Color Picker -->
+      <input type="color" [(ngModel)]="selectedSidebarColor" (input)="applySidebarColor()" />
+      <!-- Hex Code Input -->
+      <input type="text" [(ngModel)]="selectedSidebarColor" placeholder="#f4f4f4" (input)="applySidebarColor()" />
+      <button class="apply-btn" (click)="applySidebarColor()">Apply</button>
+    </div>
+
+    <!-- Label for color input for App Icon -->
+    <label for="iconColor">App Icon Color:</label>
+    <div class="color-picker-container">
+      <!-- Color Picker -->
+      <input type="color" [(ngModel)]="selectedIconColor" (input)="applyAppIconColor()" />
+      <!-- Hex Code Input -->
+      <input type="text" [(ngModel)]="selectedIconColor" placeholder="#000000" (input)="applyAppIconColor()" />
+      <button class="apply-btn" (click)="applyAppIconColor()">Apply</button>
+    </div>
+
+    <!-- Label for color input for Sidebar Text -->
+    <label for="sidebarTextColor">Sidebar Text Color:</label>
+    <div class="color-picker-container">
+      <!-- Color Picker -->
+      <input type="color" [(ngModel)]="selectedSidebarTextColor" (input)="applySidebarTextColor()" />
+      <!-- Hex Code Input -->
+      <input type="text" [(ngModel)]="selectedSidebarTextColor" placeholder="#000000" (input)="applySidebarTextColor()" />
+      <button class="apply-btn" (click)="applySidebarTextColor()">Apply</button>
+    </div>
+  </div>
+</div>

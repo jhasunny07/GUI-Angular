@@ -1,0 +1,36 @@
+/* Styling for the PrimeNG table */
+p-table {
+    width: 100%;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  p-table th {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  p-table td {
+    text-align: center;
+  }
+  
+  p-table .p-sortable-column {
+    cursor: pointer;
+  }
+  
+  p-table .p-sortable-column .p-sortIcon {
+    font-size: 1.2em;
+    margin-left: 5px;
+  }
+  
+  p-table .p-paginator {
+    margin-top: 15px;
+  }
+  
+  /* Responsive design for smaller screens */
+  @media (max-width: 768px) {
+    p-table {
+      font-size: 14px;
+    }
+  }
+  

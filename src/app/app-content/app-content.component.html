@@ -1,0 +1,89 @@
+<div [ngClass]="{ 'dark-mode': darkMode }">
+  <div style="padding: 20px;">
+    <h3>System</h3>
+    <ul class="app-list">
+      <li *ngFor="let app of apps">
+        <a [routerLink]="app.routerLink" class="app-item">
+          <i [class]="app.icon"></i>
+          <span [ngStyle]="{
+            fontSize: appNameStyle.fontSize,
+            fontWeight: appNameStyle.fontWeight,
+            marginTop: appNameStyle.marginTop,                  color: appNameColor
+          }">{{ app.name }}</span>
+        </a>
+      </li>
+    </ul>
+ 
+    
+    <!-- Policy Section -->
+    <h3>Policy</h3>
+    <ul class="app-list">
+      <li *ngFor="let policy of Policy; ">
+        <a [routerLink]="policy.routerLink" class="app-item">
+          <i [class]="policy.icon"></i>
+          <span [ngStyle]="{
+            fontSize: appNameStyle.fontSize,
+            fontWeight: appNameStyle.fontWeight,
+            marginTop: appNameStyle.marginTop,
+            color: appNameColor
+          }">{{ policy.name }}</span>
+        </a>
+      </li>
+    </ul>
+    
+    <!-- Package Section -->
+    <h3>Package</h3>
+    <ul class="app-list">
+      <li *ngFor="let package of Package; ">
+        <div class="app-item">
+          <i [class]="package.icon"></i>
+          <span [ngStyle]="{
+            fontSize: appNameStyle.fontSize,
+            fontWeight: appNameStyle.fontWeight,
+            marginTop: appNameStyle.marginTop,
+            color: appNameColor
+          }">{{ package.name }}</span>
+        </div>
+       
+      </li>
+    </ul>
+    
+    <!-- Payment Section -->
+    <h3>Payment</h3>
+    <ul class="app-list">
+      <li *ngFor="let payment of Payment; ">
+        <div class="app-item">
+          <i [class]="payment.icon"></i>
+          <span [ngStyle]="{
+            fontSize: appNameStyle.fontSize,
+            fontWeight: appNameStyle.fontWeight,
+            marginTop: appNameStyle.marginTop,
+            color: appNameColor
+          }">{{ payment.name }}
+          
+        </span>
+        </div>
+      </li>
+    </ul>
+    
+    <!-- Pin Section -->
+    <h3>Pin</h3>
+    <ul class="app-list">
+      <li *ngFor="let pin of Pin; ">
+        <div class="app-item">
+          <i [class]="pin.icon"></i>
+          <span [ngStyle]="{
+            fontSize: appNameStyle.fontSize,
+            fontWeight: appNameStyle.fontWeight,
+            marginTop: appNameStyle.marginTop,
+            color: appNameColor
+          }">{{ pin.name }}</span>
+        </div>
+      </li>
+    </ul>
+    
+
+    <!-- Repeat similar structure for policy, package, payment, and pin -->
+  </div>
+</div>
+

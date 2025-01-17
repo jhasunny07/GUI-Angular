@@ -1,0 +1,16 @@
+<!-- Widget 2: Violet Button Inside the Content -->
+<div class="widget" [ngClass]="{'collapsed': collapsedWidget2}" id="widget2">
+    <div class="widget-header">
+      Widget 2
+      <button *ngIf="!collapsedWidget2" class="collapse-btn" (click)="toggleCollapse()">
+        <i class="fas fa-minus"></i> <!-- Minus icon when expanded -->
+      </button>
+      <button *ngIf="collapsedWidget2" class="collapse-btn" (click)="toggleCollapse()">
+        <i class="fas fa-plus"></i> <!-- Plus icon when collapsed -->
+      </button>
+    </div>
+    <div class="widget-content" *ngIf="!collapsedWidget2">
+      <p>This is Widget 2 content with a violet button inside.</p>
+      <button class="btn-violet">Violet Button</button> <!-- Violet button inside content -->
+    </div>
+  </div>

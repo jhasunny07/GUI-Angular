@@ -1,0 +1,55 @@
+<div class="firewall-manage-container">
+    <h1>Manage Firewall Rules</h1>
+  
+    <!-- No Access Rules Message -->
+    <div *ngIf="firewallRules.length === 0" class="no-rules">
+      <p>No Access Rules Defined</p>
+    </div>
+  
+    <!-- Container for the table that allows scrolling -->
+    <div class="firewall-table-container" *ngIf="firewallRules.length > 0">
+      <table class="firewall-table">
+        <thead>
+          <tr>
+            <th>Sel</th>
+            <th>Source IP / Domain Name / Network</th>
+            <th>Src. Port</th>
+            <th>Source MAC Address</th>
+            <th>Destination IP / Domain Name / Network</th>
+            <th>Dst. Port</th>
+            <th>Action</th>
+            <th>Protocol</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th>Upload Data</th>
+            <th>Download Data</th>
+            <th>Bandwidth (bits/sec)</th>
+            <th>Action By</th>
+            <th>Action Date</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let rule of firewallRules; let i = index">
+            <td><input type="checkbox" [(ngModel)]="rule.selected" /></td>
+            <td>{{ rule.source }}</td>
+            <td>{{ rule.sourcePort }}</td>
+            <td>{{ rule.sourceMac }}</td>
+            <td>{{ rule.destination }}</td>
+            <td>{{ rule.destinationPort }}</td>
+            <td>{{ rule.action }}</td>
+            <td>{{ rule.protocol }}</td>
+            <td>{{ rule.startTime }}</td>
+            <td>{{ rule.endTime }}</td>
+            <td>{{ rule.uploadData }}</td>
+            <td>{{ rule.downloadData }}</td>
+            <td>{{ rule.bandwidth }}</td>
+            <td>{{ rule.actionBy }}</td>
+            <td>{{ rule.actionDate }}</td>
+            <td>{{ rule.description }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

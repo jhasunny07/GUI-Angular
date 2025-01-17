@@ -1,0 +1,76 @@
+
+  <h2>Network Interfaces</h2>
+
+  <!-- Table -->
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Interface</th>
+          <th>IPv4 Address</th>
+          <th>Netmask</th>
+          <th>Description</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let interface of interfaces; let i = index">
+          <td>{{ interface.name }}</td>
+          <td>{{ interface.ip }}</td>
+          <td>{{ interface.netmask }}</td>
+          <td>{{ interface.description }}</td>
+          <td>
+            <div class="action-buttons">
+              <button (click)="openEditPanel(interface)">Edit</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Side Panel -->
+  <div class="side-panel" [ngClass]="{'open': panelOpen}">
+    <div class="side-panel-header">
+      <h5>Edit Physical Interface</h5>         
+      <button (click)="closeEditPanel()">Close</button>
+    </div>
+
+    <div class="side-panel-body">
+      <form (ngSubmit)="submitForm()">
+        <div class="form-group">
+          <label for="interfaceName">Physical Interface</label>
+          <input id="interfaceName" [(ngModel)]="currentInterface.name" name="name" required />
+        </div>
+
+        <div class="form-group">
+          <label for="ipAddress">IP Address</label>
+          <input id="ipAddress" [(ngModel)]="currentInterface.ip" name="ip" required />
+        </div>
+
+        <div class="form-group">
+          <label for="netmask">Netmask</label>
+          <input id="netmask" [(ngModel)]="currentInterface.netmask" name="netmask" required />
+        </div>
+
+        <div class="form-group">
+          <label for="description">Description</label>
+          <input id="description" [(ngModel)]="currentInterface.description" name="description" />
+        </div>
+
+        <div class="button-group">
+          <button type="submit" class="save-button">Save Changes</button>
+          <button type="button" class="cancel-button" (click)="cancelEdit()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Buttons Below Table -->
+  <div class="button-container">
+    <button (click)="addAlias()">Add Alias</button>
+    <button>Button 1</button>
+    <button>Button 2</button>
+    <button>Button 3</button>
+  </div>
+

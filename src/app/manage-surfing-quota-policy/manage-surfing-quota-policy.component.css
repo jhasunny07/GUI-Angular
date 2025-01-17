@@ -1,0 +1,28 @@
+.edit-modal {
+  position: fixed;
+  top: 52%;
+  left: 50%;
+  width: 600px;
+  max-height: 90vh; /* Ensures the modal does not exceed 80% of the viewport height */
+  overflow-y: auto; /* Enables vertical scrolling */
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  z-index: 1000;
+}
+
+.modal-content h4 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.form-actions {
+  margin-top: 20px;
+}
+
+.table-responsive {
+  margin-top: 20px;
+}
+

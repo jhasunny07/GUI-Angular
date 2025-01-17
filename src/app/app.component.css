@@ -1,0 +1,91 @@
+/* src/app/app.component.css */
+.right-sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100%;
+    background-color: #f8f9fa;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+  }
+  
+
+
+  
+  .content-wrapper {
+    display: flex;
+    flex: 1; /* Fill available space */
+    flex-direction: row; /* Align items horizontally (chart and sidebar) */
+
+    overflow: auto; /* Allow scrolling only on the content wrapper */
+  }
+
+
+
+
+  .chart-container {
+    flex: 1; /* Take up available space */
+    padding: 20px; /* Add some padding around the chart */
+    overflow: auto; /* Allow scrolling if content overflows */
+    background-color: #fff; /* Optional background color for the chart */
+    margin-right: 20px; /* Add space from the right side */
+    height: calc(100vh - 60px);
+    
+    position: fixed;
+
+    
+    top: 50px;
+    left: 60px;
+    right: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+
+  .main-container {
+    max-width: none;
+}
+
+
+
+
+  /* .chart-container{
+   
+    position: fixed;
+
+    
+    top: 50px;
+    left: 60px;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f8f9fa;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+   
+  } */
+
+  @media screen and (max-width: 768px) {
+    .chart-container {
+        width: 100%; /* Chart takes full width on mobile */
+        padding: 10px; /* Adjust padding for mobile view */
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        
+      }
+
+      .content-wrapper {
+        display: flex;
+        flex: 1;
+        flex-direction: row;
+        /* padding-top: 10px; */
+        overflow: auto;
+    }
+    
+  }
+
+
+  
+
+  

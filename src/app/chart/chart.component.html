@@ -1,0 +1,10 @@
+<div [style.display]="collapsed ? 'none' : 'block'" class="chart-container">
+    <canvasjs-angular-charts 
+      [options]="chartOptions"
+      (rendered)="onRender()">
+    </canvasjs-angular-charts>
+  </div>
+  <button (click)="toggleCollapse()">
+    {{ collapsed ? 'Expand' : 'Collapse' }} Chart
+  </button>
+  

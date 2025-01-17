@@ -1,0 +1,81 @@
+.firewall-manage-container {
+    max-width: 100%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    overflow-x: auto; /* Allow horizontal scroll */
+  }
+  
+  h1 {
+    text-align: center;
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .no-rules {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #666;
+  }
+  
+  /* Container for the table that allows scrolling */
+  .firewall-table-container {
+    max-width: 100%;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on touch devices */
+  }
+  
+  .firewall-table {
+    width: 100%;
+    min-width: 1000px; /* Ensure the table's content exceeds the container */
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 0.9rem;
+    text-align: left;
+  }
+  
+  .firewall-table th,
+  .firewall-table td {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+  }
+  
+  .firewall-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .firewall-table td {
+    vertical-align: middle;
+  }
+  
+  input[type='checkbox'] {
+    display: block;
+    margin: auto;
+  }
+  
+  tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+  }
+  
+  tbody tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  @media (max-width: 768px) {
+    .firewall-table {
+      font-size: 0.8rem;
+    }
+  
+    .firewall-table th,
+    .firewall-table td {
+      padding: 8px 10px;
+    }
+  }
+  

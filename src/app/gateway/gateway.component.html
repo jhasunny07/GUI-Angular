@@ -1,0 +1,149 @@
+<!-- gateway.component.html -->
+
+<div class="container">
+    <h2>Gateway Information</h2>
+
+    <!-- IPv4 Section -->
+    <h3>IPv4 Gateways</h3>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Gateway Name</th>
+          <th>Gateway IP Address</th>
+          <th>Weight</th>
+          <th>Gateway Type</th>
+          <th>Backup Gateway Name</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let gateway of ipv4Gateways; let i = index">
+          <td>{{ gateway.name }}</td>
+          <td>{{ gateway.ip }}</td>
+          <td>{{ gateway.weight }}</td>
+          <td>{{ gateway.type }}</td>
+          <td>{{ gateway.backup || 'N/A' }}</td>
+          <td>
+            <!-- Edit Button -->
+            <button class="btn btn-sm btn-info" (click)="editGateway(gateway)">Edit</button>
+        
+            <!-- Delete Button -->
+            <button class="btn btn-sm btn-danger" (click)="deleteGateway(i)" [disabled]="ipv4Gateways.length <= 1">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Add Button -->
+    <button class="btn btn-primary" (click)="toggleForm('ipv4')">Add IPv4 Gateway</button>
+    
+    <!-- Add/Update IPv4 Gateway Form -->
+    <div *ngIf="showFormFor === 'ipv4'">
+        <form (ngSubmit)="submitForm()" #gatewayForm="ngForm" class="p-4 border rounded shadow-sm">
+
+            <!-- Gateway Name -->
+            <div class="form-group">
+              <label for="gatewayName">Gateway Name <span class="text-danger">*</span></label>
+              <input type="text" id="gatewayName" class="form-control" [(ngModel)]="newGateway.name" name="name" required>
+            </div>
+        
+            <!-- IPv4 Address -->
+            <div class="form-group">
+              <label for="ipv4Address">IPv4 Address <span class="text-danger">*</span></label>
+              <input type="text" id="ipv4Address" class="form-control" [(ngModel)]="newGateway.ip" name="ip" required>
+            </div>
+        
+            <!-- Weight -->
+            <div class="form-group">
+              <label for="weight">Weight <span class="text-danger">*</span></label>
+              <input type="number" id="weight" class="form-control" [(ngModel)]="newGateway.weight" name="weight" required>
+            </div>
+        
+            <!-- Configure Gateway as -->
+            <div class="form-group">
+              <label>Configure Gateway as <span class="text-danger">*</span></label>
+              <div class="form-check form-check-inline">
+                <input type="radio" id="primary" class="form-check-input" [(ngModel)]="newGateway.type" name="type" value="Primary" required>
+                <label for="primary" class="form-check-label">Primary</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input type="radio" id="backup" class="form-check-input" [(ngModel)]="newGateway.type" name="type" value="Backup">
+                <label for="backup" class="form-check-label">Backup</label>
+              </div>
+            </div>
+        
+            <!-- Select Backup Gateway -->
+            <div class="form-group" *ngIf="newGateway.type === 'Backup'">
+              <label for="backupGateway">Select Backup Gateway</label>
+              <select id="backupGateway" class="form-control" [(ngModel)]="newGateway.backup" name="backup">
+                <option value="" disabled>Select Gateway</option>
+                <option *ngFor="let gateway of ipv4Gateways" [value]="gateway.name">{{ gateway.name }}</option>
+              </select>
+            </div>
+        
+            <!-- Enable Priority -->
+            <div class="form-group">
+              <label>Enable Priority <span class="text-danger">*</span></label>
+              <div class="form-check form-check-inline">
+                <input type="radio" id="enablePriorityYes" class="form-check-input" [(ngModel)]="newGateway.priority" name="priority" value="Yes" required>
+                <label for="enablePriorityYes" class="form-check-label">Yes</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input type="radio" id="enablePriorityNo" class="form-check-input" [(ngModel)]="newGateway.priority" name="priority" value="No">
+                <label for="enablePriorityNo" class="form-check-label">No</label>
+              </div>
+            </div>
+        
+            <!-- Networks Routed Through This Gateway -->
+            <div class="form-group">
+              <label for="networksRouted">Networks explicitly routed through this gateway</label>
+              <select id="networksRouted" class="form-control" [(ngModel)]="newGateway.networksRouted" name="networksRouted" multiple>
+                <option value="Network 1">Network 1</option>
+                <option value="Network 2">Network 2</option>
+                <option value="Network 3">Network 3</option>
+              </select>
+            </div>
+        
+            <!-- Submit Button -->
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary btn-lg mt-4 w-10">{{isEditing ? 'Update' : 'Submit'}}</button>
+              </div>
+          </form>
+          
+    </div>
+
+    <!-- IPv6 Section -->
+    <h3 class=" mt-4">IPv6 Gateways</h3>
+   <!-- IPv6 Table (if applicable) -->
+    <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Gateway Name</th>
+        <th>Gateway IP Address</th>
+        <th>Weight</th>
+        <th>Gateway Type</th>
+        <th>Backup Gateway Name</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let gateway of ipv6Gateways; let i = index">
+        <td>{{ gateway.name }}</td>
+        <td>{{ gateway.ip }}</td>
+        <td>{{ gateway.weight }}</td>
+        <td>{{ gateway.type }}</td>
+        <td>{{ gateway.backup || 'N/A' }}</td>
+        <td>
+          <!-- Edit Button -->
+          <button class="btn btn-sm btn-info" (click)="editGateway(gateway)">Edit</button>
+          
+          <!-- Delete Button -->
+          <button class="btn btn-sm btn-danger" (click)="deleteGateway(i)" [disabled]="ipv6Gateways.length <= 1">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+    <!-- Add Button for IPv6 -->
+    <button class="btn btn-primary" (click)="toggleForm('ipv6')">Add IPv6 Gateway</button>
+  </div>

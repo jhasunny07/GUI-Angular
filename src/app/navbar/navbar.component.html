@@ -1,0 +1,23 @@
+<nav class="navbar" [style.background-color]="navbarColor">
+  <div class="navbar-logo">
+    <a [routerLink]="['/home']">
+      <img src="./assets/onlinelogo.png" alt="Logo" class="navbar-logo-img" />
+    </a>
+  </div>
+
+  <!-- Search Bar in the Navbar -->
+
+
+  <div class="navbar-user-icon" (click)="toggleDropdown($event)" #userIcon>
+    <i class="fa fa-user"></i>
+    <div *ngIf="isDropdownVisible" class="dropdown-menu" #dropdownMenu>
+      <a href="javascript:void(0);" (click)="toggleRightSidebar()">Settings</a>
+      <a href="/">Profile</a>
+      <a href="/">Help</a>
+      <a href="/">About</a>
+      <a href="/" id="logout">Logout</a>
+    </div>
+  </div>
+</nav>
+
+<app-right-sidebar></app-right-sidebar>

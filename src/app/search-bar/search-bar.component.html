@@ -1,0 +1,14 @@
+<div class="search-bar-container">
+  <input
+    type="text"
+    [(ngModel)]="searchQuery"
+    (input)="filterSuggestions()"
+    placeholder="Search..."
+    class="search-bar-input"
+  />
+  <ul *ngIf="suggestions.length > 0" class="suggestions-list">
+    <li *ngFor="let suggestion of suggestions" (click)="onSelectSuggestion(suggestion)">
+      {{ suggestion }}
+    </li>
+  </ul>
+</div>

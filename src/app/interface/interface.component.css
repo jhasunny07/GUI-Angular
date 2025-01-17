@@ -1,0 +1,342 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.main-container {
+  position: fixed;
+  left: 28px;
+  top: 80px;
+  width: 100%;
+}
+
+h2 {
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+  font-size: 2.2em;
+  color: #242424;
+  margin-bottom: 20px;
+}
+
+.table-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 90%;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+thead {
+  background: linear-gradient(to bottom, #0072ff, #0056b3);
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+th {
+  padding: 16px;
+  font-size: 0.95em;
+  text-align: left;
+  border: 1px solid white;
+  position: relative;
+}
+
+th::before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.2);
+  z-index: -1;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+}
+
+tbody {
+  background-color: #f8f9fa;
+}
+
+td {
+  padding: 12px;
+  font-size: 0.85em;
+  text-align: left;
+  color: #444;
+  border-bottom: 1px solid #ddd;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: center; /* Align buttons in the center */
+}
+
+.action-buttons button {
+  padding: 6px 10px;
+  background-color: #0072ff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.8em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.action-buttons button:hover {
+  background-color: #005bb5;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.button-container button {
+  padding: 12px 20px;
+  background-color: #0072ff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.button-container button:hover {
+  background-color: #005bb5;
+  transform: translateY(-2px);
+}
+
+/* Side Panel Styles */
+.side-panel {
+  position: fixed;
+  top: 70px;
+  right: -500px;
+  width: 273px;
+  height: 100%;
+  background: linear-gradient(to bottom, #0072ff, #0056b3);
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+  transition: right 0.3s ease-in-out;
+  padding: 20px;
+  z-index: 1000;
+  border-radius: 8px;
+  overflow-y: auto;
+}
+
+.side-panel.open {
+  right: 0; /* Slide in the panel */
+}
+
+.side-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #ffffff;
+  padding-bottom: 10px;
+}
+
+.side-panel-header h5 {
+  font-family: 'Arial', sans-serif;
+  font-size: 1.2em;
+  margin: 0;
+  color: #ffffff;
+}
+
+.side-panel-header button {
+  background-color: transparent;
+  border: none;
+  font-size: 1.2em;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.side-panel-header button:hover {
+  color: #ffdfdf;
+}
+
+/* Form Body */
+.side-panel-body {
+  max-width: 100%;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 1.1em;
+  color: #ffffff;
+  margin-bottom: 5px;
+}
+
+/* Reduced input width */
+.form-group input {
+  width: 80%; /* Decrease width from 100% to 80% */
+  padding: 12px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s ease;
+  margin-top: 5px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form-group input:focus {
+  border-color: #ffffff;
+  outline: none;
+}
+
+/* Save and Cancel Buttons */
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.save-button, .cancel-button {
+  padding: 12px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+  flex: 1;
+}
+
+.save-button {
+  background-color: #4CAF50; /* Green for Save */
+  color: white;
+}
+
+.cancel-button {
+  background-color: #f44336; /* Red for Cancel */
+  color: white;
+}
+
+.save-button:hover, .cancel-button:hover {
+  transform: translateY(-2px);
+}
+
+/* Additional Form Styling */
+input:disabled {
+  background-color: #f2f2f2;
+  cursor: not-allowed;
+}
+
+/* Form Layout */
+.side-panel-body form {
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Media Queries for Mobile Responsiveness */
+@media (max-width: 768px) {
+  .side-panel {
+    right: -100%; /* Keep side panel off-screen on mobile by default */
+    width: 100%;  /* Sidebar takes full width */
+    border-radius: 0; /* Remove border-radius for mobile */
+  }
+
+  .side-panel.open {
+    right: 0; /* Show the panel when it's open on mobile */
+  }
+
+  /* Button Group for Form */
+  .button-group {
+    display: flex;
+    flex-direction: column;  /* Stack buttons vertically */
+    gap: 15px;
+  }
+
+  /* Adjust input field width and padding */
+  .form-group input {
+    width: 100%;  /* Increase width to make it larger on small screens */
+
+  }
+
+  /* Main Container */
+  .main-container {
+    margin-left: 0;
+    margin-top: 60px;
+  }
+
+  /* Ensure table is responsive */
+  table {
+    width: 100%; /* Make table take full width */
+  }
+
+  h2{
+    font-size: 1.5em;
+    margin-top: 10px;
+    margin-bottom: 5;
+  }
+
+  th, td {
+    font-size: 0.9em;  /* Slightly adjust font size for mobile view */
+    padding: 10px;
+  }
+  
+  .button-container {
+    padding: 0 20px;
+  }
+
+  .button-container button {
+    width: 100%;  /* Make buttons full width on small screens */
+    min-width: 0;  /* Remove the min-width for full-width buttons */
+    padding: 10px 20px; /* Adjust padding for better button sizing */
+    font-size: 10px; /* Increase font size slightly on mobile */
+  }
+
+  
+}
+@media (max-width: 768px) {
+   table {
+    width: 100%; /* Make table take full width */
+    min-width: 600px; /* Ensure table has a min width for readability */
+  }
+
+  th, td {
+    font-size: 0.9em;  /* Slightly adjust font size for mobile view */
+    padding: 10px; /* Adjust padding for better mobile display */
+  }
+
+  /* Table Container */
+  .table-container {
+    overflow-x: auto; /* Enable horizontal scrolling for table */
+
+    width: 100%; /* Make sure table container takes the full width */
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+
+

@@ -1,0 +1,13 @@
+
+  <!-- App Detail View -->
+  <div id="appDetail" class="app-detail">
+    <h2 style="padding: 10px; display: flex; justify-content: center;">Network</h2>
+    <div class="tabs" >
+        <div class="tab" [routerLink]="['interface']" routerLinkActive="active">Interface</div>
+        <div class="tab" [routerLink]="['gateway']" routerLinkActive="active">Gateway</div>
+      <div class="tab" onclick="showTabContent('Priorities')">Priorities</div>
+      <div class="tab" [routerLink]="['dns']" routerLinkActive="active">DNS</div>
+      <div class="tab" onclick="showTabContent('Static Route')">Static Route</div>
+    </div>
+    <router-outlet></router-outlet>
+  </div>

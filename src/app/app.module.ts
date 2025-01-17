@@ -1,18 +1,20 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { Component } from '@angular/core';
+import { HomeComponent } from './home/home.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { FormsModule } from '@angular/forms';  // Import FormsModule here
+import { TableModule } from 'primeng/table';
+import { PrimeNgTableComponent } from './primeng-table/primeng-table.component';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 
-@NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+
+
+@Component({
+  selector: 'app-root',
+  standalone: true,   // This indicates that the app component is standalone
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
+  imports: [NavbarComponent, SidebarComponent, FormsModule, TableModule, PrimeNgTableComponent] // Import FormsModule and other components here
+  // Import FormsModule and other components here
 })
-export class AppModule { }
+export class AppComponent {}
