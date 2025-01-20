@@ -1,89 +1,109 @@
-<div [ngClass]="{ 'dark-mode': darkMode }">
-  <div style="padding: 20px;">
-    <h3>System</h3>
-    <ul class="app-list">
-      <li *ngFor="let app of apps">
-        <a [routerLink]="app.routerLink" class="app-item">
+<div [ngClass]="{ 'dark-mode': darkMode }" class="container-fluid py-3">
+
+  <!-- Section: System -->
+  <!-- Section: System -->
+  <h3>System</h3>
+  <ul class="app-list row gx-3 gy-4">
+    <li *ngFor="let app of displayed.apps" class="col-2 col-sm-2 col-md-2 col-md-custom ">
+      <a [routerLink]="app.routerLink" class="app-item text-decoration-none text-center ">
+        <div class="app-icon mx-auto mb-2">
           <i [class]="app.icon"></i>
-          <span [ngStyle]="{
-            fontSize: appNameStyle.fontSize,
-            fontWeight: appNameStyle.fontWeight,
-            marginTop: appNameStyle.marginTop,                  color: appNameColor
-          }">{{ app.name }}</span>
-        </a>
-      </li>
-    </ul>
- 
-    
-    <!-- Policy Section -->
-    <h3>Policy</h3>
-    <ul class="app-list">
-      <li *ngFor="let policy of Policy; ">
-        <a [routerLink]="policy.routerLink" class="app-item">
-          <i [class]="policy.icon"></i>
-          <span [ngStyle]="{
-            fontSize: appNameStyle.fontSize,
-            fontWeight: appNameStyle.fontWeight,
-            marginTop: appNameStyle.marginTop,
-            color: appNameColor
-          }">{{ policy.name }}</span>
-        </a>
-      </li>
-    </ul>
-    
-    <!-- Package Section -->
-    <h3>Package</h3>
-    <ul class="app-list">
-      <li *ngFor="let package of Package; ">
-        <div class="app-item">
-          <i [class]="package.icon"></i>
-          <span [ngStyle]="{
-            fontSize: appNameStyle.fontSize,
-            fontWeight: appNameStyle.fontWeight,
-            marginTop: appNameStyle.marginTop,
-            color: appNameColor
-          }">{{ package.name }}</span>
         </div>
-       
-      </li>
-    </ul>
-    
-    <!-- Payment Section -->
-    <h3>Payment</h3>
-    <ul class="app-list">
-      <li *ngFor="let payment of Payment; ">
-        <div class="app-item">
-          <i [class]="payment.icon"></i>
-          <span [ngStyle]="{
-            fontSize: appNameStyle.fontSize,
-            fontWeight: appNameStyle.fontWeight,
-            marginTop: appNameStyle.marginTop,
-            color: appNameColor
-          }">{{ payment.name }}
-          
-        </span>
-        </div>
-      </li>
-    </ul>
-    
-    <!-- Pin Section -->
-    <h3>Pin</h3>
-    <ul class="app-list">
-      <li *ngFor="let pin of Pin; ">
-        <div class="app-item">
-          <i [class]="pin.icon"></i>
-          <span [ngStyle]="{
-            fontSize: appNameStyle.fontSize,
-            fontWeight: appNameStyle.fontWeight,
-            marginTop: appNameStyle.marginTop,
-            color: appNameColor
-          }">{{ pin.name }}</span>
-        </div>
-      </li>
-    </ul>
-    
-
-    <!-- Repeat similar structure for policy, package, payment, and pin -->
+        <span class="app-name ">{{ app.name }}</span>
+      </a>
+    </li>
+  </ul>
+  <!-- View More / Less Button -->
+  <div class="text-center" *ngIf="isMobileView()">
+    <button class="btn btn-primary btn-sm" (click)="toggleView('apps')">
+      {{ showAllApps ? 'View Less' : 'View All' }}
+    </button>
   </div>
-</div>
 
+
+  <!-- Repeat similar structure for Policy, Package, Payment, and Pin sections -->
+  <h3>Policy</h3>
+  <ul class="app-list  row gx-3 gy-4">
+    <li *ngFor="let policy of displayed.policy" class="col-2 col-sm-2 col-md-2 ">
+      <a [routerLink]="policy.routerLink" class="app-item text-decoration-none d-block text-center">
+        <div class="app-icon mx-auto mb-2">
+          <i [class]="policy.icon"></i>
+        </div>
+        <span class="app-name ">{{ policy.name }}</span>
+      </a>
+    </li>
+  </ul>
+  <div class="text-center" *ngIf="Policy.length > displayed.policy.length">
+    <button class="btn btn-primary btn-sm" (click)="toggleView('policy')">
+      {{ showAllPolicy ? 'View Less' : 'View All' }}
+    </button>
+  </div>
+
+
+
+
+  <!-- Package Section -->
+  <h3>Package</h3>
+  <ul class="app-list row gx-3 gy-4">
+    <li *ngFor="let pack of displayed.package" class="col-2 col-sm-2 col-md-2 col-md-custom">
+      <div class="app-item text-decoration-none d-block text-center">
+        <div class="app-icon mx-auto mb-2">
+          <i [class]="pack.icon"></i>
+        </div>
+        <span class="app-name">{{ pack.name }}</span>
+      </div>
+    </li>
+  </ul>
+  <!-- Only show the button if more than 5 items are present in the Package section -->
+  <div class="text-center" *ngIf="Package.length > displayed.package.length">
+    <button class="btn btn-primary btn-sm" (click)="toggleView('package')">
+      {{ showAllPackage ? 'View Less' : 'View All' }}
+    </button>
+  </div>
+  
+
+
+
+  <!-- Payment Section -->
+  <h3>Payment</h3>
+  <ul class="app-list  row gx-3 gy-4">
+    <li *ngFor="let payment of Payment; " class="col-2 col-sm-2 col-md-2 col-md-custom">
+      <div class="app-item text-decoration-none d-block text-center">
+        <div class="app-icon  mx-auto mb-2">
+          <i [class]="payment.icon"></i>
+        </div>
+        <span class="app-name">{{ payment.name }}
+
+        </span>
+      </div>
+    </li>
+  </ul>
+  <div class="text-center" *ngIf="Payment.length > displayed.payment.length">
+    <button class="btn btn-primary btn-sm" (click)="toggleView('payment')">
+      {{ showAllPayment ? 'View Less' : 'View All' }}
+    </button>
+  </div>
+
+  <!-- Pin Section -->
+  <h3>Pin</h3>
+  <ul class="app-list  row gx-3 gy-4">
+    <li *ngFor="let pin of Pin; " class="app-list-item col-2 col-sm-2 col-md-2 col-md-custom">
+      <div class="app-item text-decoration-none d-block text-center">
+        <div class="app-icon mx-auto mb-2">
+          <i [class]="pin.icon"></i>
+        </div>
+        <span class="app-name">{{ pin.name }}</span>
+      </div>
+    </li>
+  </ul>
+
+
+  <div class="text-center" *ngIf="Pin.length > displayed.pin.length">
+    <button class="btn btn-primary btn-sm" (click)="toggleView('pin')">
+      {{ showAllPin ? 'View Less' : 'View All' }}
+    </button>
+  </div>
+
+  <!-- Repeat similar structure for policy, package, payment, and pin -->
+
+</div>

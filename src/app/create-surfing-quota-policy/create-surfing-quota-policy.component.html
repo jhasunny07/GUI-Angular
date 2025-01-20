@@ -1,161 +1,169 @@
-<div class="container">
-  <div class="card">
-    <h2 class="card-header">Create Surfing Quota Policy</h2>
-    <form (ngSubmit)="submitPolicy()" #quotaForm="ngForm" class="card-body">
-      
-      <!-- Group: General Information -->
-      <div class="form-group-wrapper">
-        <h3 class="group-title">General Information</h3>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="policyName" class="form-label">Policy Name*</label>
-            <input
-              type="text"
-              id="policyName"
-              class="form-control"
-              [(ngModel)]="policy.name"
-              name="policyName"
-              required
-              placeholder="Enter policy name"
-            />
-          </div>
-
-          <div class="form-group">
-            <label for="policyType" class="form-label">Policy Type*</label>
-            <select
-              id="policyType"
-              class="form-control"
-              [(ngModel)]="policy.type"
-              name="policyType"
-              required
-              (change)="onPolicyTypeChange()"
-            >
-              <option value="Absolute">Absolute</option>
-              <option value="Ratebased">Ratebased</option>
-            </select>
-          </div>
-        </div>
-      </div>
-
-      <!-- Group: Time Settings -->
-      <div class="form-group-wrapper">
-        <h3 class="group-title">Time Settings</h3>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="allottedTime" class="form-label">Allotted Time (hh:mm)*</label>
-            <input
-              type="time"
-              id="allottedTime"
-              class="form-control"
-              [(ngModel)]="policy.allottedTime"
-              name="allottedTime"
-              [disabled]="policy.type === 'Ratebased' || policy.unlimitedTime"
-              required
-            />
-            <label class="form-check-label">
+<div class="container mt-5">
+  <div class="card shadow">
+    <div class="card-header bg-primary text-white">
+      <h2 class="text-center mb-0">Create Surfing Quota Policy</h2>
+    </div>
+    <div class="card-body">
+      <form (ngSubmit)="submitPolicy()" #quotaForm="ngForm">
+        
+        <!-- General Information -->
+        <fieldset class="mb-4">
+          <legend class="text-primary">General Information</legend>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="policyName" class="form-label">Policy Name*</label>
               <input
-                type="checkbox"
-                [(ngModel)]="policy.unlimitedTime"
-                name="unlimitedTime"
-                (change)="onUnlimitedTimeChange()"
+                type="text"
+                id="policyName"
+                class="form-control"
+                [(ngModel)]="policy.name"
+                name="policyName"
+                required
+                placeholder="Enter policy name"
               />
-              Unlimited Time
-            </label>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="policyType" class="form-label">Policy Type*</label>
+              <select
+                id="policyType"
+                class="form-select"
+                [(ngModel)]="policy.type"
+                name="policyType"
+                required
+                (change)="onPolicyTypeChange()"
+              >
+                <option value="Absolute">Absolute</option>
+                <option value="Ratebased">Ratebased</option>
+              </select>
+            </div>
           </div>
-
-          <div class="form-group">
-            <label for="sessionPulse" class="form-label">Session Pulse (in minutes)*</label>
-            <input
-              type="number"
-              id="sessionPulse"
-              class="form-control"
-              [(ngModel)]="policy.sessionPulse"
-              name="sessionPulse"
-              [disabled]="policy.unlimitedTime"
-              required
-              min="1"
-              placeholder="e.g., 1"
-            />
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label for="cycleType" class="form-label">Cycle Type*</label>
-            <select
-              id="cycleType"
-              class="form-control"
-              [(ngModel)]="policy.cycleType"
-              name="cycleType"
-              required
-            >
-              <option value="Daily">Daily</option>
-              <option value="Weekly">Weekly</option>
-              <option value="Monthly">Monthly</option>
-              <option value="Non-Cyclic">Non-Cyclic</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="cycleAllottedTime" class="form-label">Cycle Allotted Time (hh:mm)*</label>
-            <input
-              type="time"
-              id="cycleAllottedTime"
-              class="form-control"
-              [(ngModel)]="policy.cycleAllottedTime"
-              name="cycleAllottedTime"
-              required
-            />
-          </div>
-        </div>
-      </div>
-
-      <!-- Group: Expiry and Description -->
-      <div class="form-group-wrapper">
-        <h3 class="group-title">Expiry & Description</h3>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="expiry" class="form-label">Set Expiry After (Days)*</label>
-            <input
-              type="number"
-              id="expiry"
-              class="form-control"
-              [(ngModel)]="policy.expiry"
-              name="expiry"
-              [disabled]="policy.unlimitedExpiry"
-              required
-              placeholder="Enter days"
-            />
-            <label class="form-check-label">
+        </fieldset>
+        
+        <!-- Time Settings -->
+        <fieldset class="mb-4">
+          <legend class="text-primary">Time Settings</legend>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="allottedTime" class="form-label">Allotted Time (hh:mm)*</label>
               <input
-                type="checkbox"
-                [(ngModel)]="policy.unlimitedExpiry"
-                name="unlimitedExpiry"
-                (change)="onUnlimitedExpiryChange()"
+                type="time"
+                id="allottedTime"
+                class="form-control"
+                [(ngModel)]="policy.allottedTime"
+                name="allottedTime"
+                [disabled]="policy.type === 'Ratebased' || policy.unlimitedTime"
+                required
               />
-              Unlimited Expiry
-            </label>
+              <div class="form-check mt-2">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  id="unlimitedTime"
+                  [(ngModel)]="policy.unlimitedTime"
+                  name="unlimitedTime"
+                  (change)="onUnlimitedTimeChange()"
+                />
+                <label class="form-check-label" for="unlimitedTime">Unlimited Time</label>
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="sessionPulse" class="form-label">Session Pulse (in minutes)*</label>
+              <input
+                type="number"
+                id="sessionPulse"
+                class="form-control"
+                [(ngModel)]="policy.sessionPulse"
+                name="sessionPulse"
+                [disabled]="policy.unlimitedTime"
+                required
+                min="1"
+                placeholder="e.g., 1"
+              />
+            </div>
           </div>
-
-          <div class="form-group">
-            <label for="policyDescription" class="form-label">Policy Description</label>
-            <textarea
-              id="policyDescription"
-              class="form-control"
-              [(ngModel)]="policy.description"
-              name="policyDescription"
-              rows="4"
-              placeholder="Describe the policy"
-            ></textarea>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="cycleType" class="form-label">Cycle Type*</label>
+              <select
+                id="cycleType"
+                class="form-select"
+                [(ngModel)]="policy.cycleType"
+                name="cycleType"
+                required
+              >
+                <option value="Daily">Daily</option>
+                <option value="Weekly">Weekly</option>
+                <option value="Monthly">Monthly</option>
+                <option value="Non-Cyclic">Non-Cyclic</option>
+              </select>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="cycleAllottedTime" class="form-label">Cycle Allotted Time (hh:mm)*</label>
+              <input
+                type="time"
+                id="cycleAllottedTime"
+                class="form-control"
+                [(ngModel)]="policy.cycleAllottedTime"
+                name="cycleAllottedTime"
+                required
+              />
+            </div>
           </div>
+        </fieldset>
+        
+        <!-- Expiry & Description -->
+        <fieldset class="mb-4">
+          <legend class="text-primary">Expiry & Description</legend>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="expiry" class="form-label">Set Expiry After (Days)*</label>
+              <input
+                type="number"
+                id="expiry"
+                class="form-control"
+                [(ngModel)]="policy.expiry"
+                name="expiry"
+                [disabled]="policy.unlimitedExpiry"
+                required
+                placeholder="Enter days"
+              />
+              <div class="form-check mt-2">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  id="unlimitedExpiry"
+                  [(ngModel)]="policy.unlimitedExpiry"
+                  name="unlimitedExpiry"
+                  (change)="onUnlimitedExpiryChange()"
+                />
+                <label class="form-check-label" for="unlimitedExpiry">Unlimited Expiry</label>
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="policyDescription" class="form-label">Policy Description</label>
+              <textarea
+                id="policyDescription"
+                class="form-control"
+                [(ngModel)]="policy.description"
+                name="policyDescription"
+                rows="4"
+                placeholder="Describe the policy"
+              ></textarea>
+            </div>
+          </div>
+        </fieldset>
+        
+        <!-- Submit Button -->
+        <div class="text-center">
+          <button
+            type="submit"
+            class="btn btn-primary px-5"
+            [disabled]="quotaForm.invalid"
+          >
+            Create Policy
+          </button>
         </div>
-      </div>
-
-      <button type="submit" class="btn-submit" [disabled]="quotaForm.invalid">
-        Create Policy
-      </button>
-    </form>
+      </form>
+    </div>
   </div>
 </div>
-
-

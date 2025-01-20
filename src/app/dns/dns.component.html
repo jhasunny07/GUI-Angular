@@ -1,85 +1,117 @@
 <div class="container mt-4">
-    <h2 class="mb-4">DNS Configuration</h2>
-  
+  <h2 class="mb-4 text-center text-primary">DNS Configuration</h2>
+
+  <div class="accordion" id="dnsAccordion">
     <!-- DNS List Section -->
-    <div class="card-container">
-        <!-- DNS List Card -->
-        <div class="card">
-          <div class="card-header">
-            <h5>DNS List</h5>
-            <p class="mb-0 text-muted">List order indicates preference</p>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="dnsListHeading">
+        <button
+          class="accordion-button"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#dnsListSection"
+          aria-expanded="true"
+          aria-controls="dnsListSection"
+        >
+          DNS List
+        </button>
+      </h2>
+      <div
+        id="dnsListSection"
+        class="accordion-collapse collapse show"
+        aria-labelledby="dnsListHeading"
+        data-bs-parent="#dnsAccordion"
+      >
+        <div class="accordion-body">
+          <ul class="list-group mb-3">
+            <li
+              class="list-group-item d-flex justify-content-between align-items-center"
+              *ngFor="let dns of dnsList; let i = index"
+              [class.active]="i === selectedIndex"
+              (click)="selectItem(i, $event)"
+            >
+              {{ dns }}
+            </li>
+          </ul>
+          <div class="input-group mb-3">
+            <input
+              [(ngModel)]="newDns"
+              type="text"
+              class="form-control"
+              placeholder="Enter DNS"
+            />
+            <button class="btn btn-primary" (click)="addDns()">Add</button>
           </div>
-          <div class="card-body" (click)="$event.stopPropagation()">
-            <div class="dns-list">
-              <ul>
-                <li
-                *ngFor="let dns of dnsList; let i = index"
-                [class.selected]="i === selectedIndex"
-                (click)="selectItem(i, $event)"
-              >
-                {{ dns }}
-              </li>
-              </ul>
-            </div>
-            <div class="actions mt-3">
-              <input
-                [(ngModel)]="newDns"
-                type="text"
-                class="form-control mb-2"
-                placeholder="Enter DNS"
-              />
-              <button class="btn btn-success me-2" (click)="addDns()">Add</button>
-              <button class="btn btn-danger me-2" (click)="removeDns()">
-                Remove
-              </button>
-              <button class="btn btn-secondary me-2" (click)="moveUp()">
-                Move Up
-              </button>
-              <button class="btn btn-secondary" (click)="moveDown()">
-                Move Down
-              </button>
-            </div>
-          </div>
-        </div>
-    
-        <!-- DNS Forwarders List Card -->
-        <div class="card">
-          <div class="card-header">
-            <h5>DNS Forwarders List</h5>
-            <p class="mb-0 text-muted">List order indicates preference</p>
-          </div>
-          <div class="card-body">
-            <div class="dns-list">
-              <ul>
-                <li *ngFor="let forwarder of forwardersList; let i = index">
-                  {{ forwarder }}
-                </li>
-              </ul>
-            </div>
-            <div class="actions mt-3">
-              <input
-                [(ngModel)]="newForwarder"
-                type="text"
-                class="form-control mb-2"
-                placeholder="Enter Forwarder"
-              />
-              <button class="btn btn-success me-2" (click)="addDns()">
-                Add
-              </button>
-              <button class="btn btn-danger" (click)="removeDns()">
-                Remove
-              </button>
-            </div>
+          <div class="d-flex flex-wrap gap-2">
+            <button class="btn btn-danger" (click)="removeDns()">Remove</button>
+            <button class="btn btn-secondary" (click)="moveUp()">Move Up</button>
+            <button class="btn btn-secondary" (click)="moveDown()">Move Down</button>
           </div>
         </div>
-    
-    
-      <!-- Domain Name Configuration Card -->
-      <div class="card">
-        <div class="card-header">
-          <h5>Domain Name Configuration</h5>
+      </div>
+    </div>
+
+    <!-- DNS Forwarders List Section -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="forwardersHeading">
+        <button
+          class="accordion-button collapsed"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#forwardersSection"
+          aria-expanded="false"
+          aria-controls="forwardersSection"
+        >
+          DNS Forwarders List
+        </button>
+      </h2>
+      <div
+        id="forwardersSection"
+        class="accordion-collapse collapse"
+        aria-labelledby="forwardersHeading"
+        data-bs-parent="#dnsAccordion"
+      >
+        <div class="accordion-body">
+          <ul class="list-group mb-3">
+            <li class="list-group-item" *ngFor="let forwarder of forwardersList; let i = index">
+              {{ forwarder }}
+            </li>
+          </ul>
+          <div class="input-group mb-3">
+            <input
+              [(ngModel)]="newForwarder"
+              type="text"
+              class="form-control"
+              placeholder="Enter Forwarder"
+            />
+            <button class="btn btn-dark" (click)="addForwarder()">Add</button>
+          </div>
+          <button class="btn btn-danger w-100" (click)="removeForwarder()">Remove</button>
         </div>
-        <div class="card-body">
+      </div>
+    </div>
+
+    <!-- Domain Name Configuration Section -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="domainNameHeading">
+        <button
+          class="accordion-button collapsed"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#domainNameSection"
+          aria-expanded="false"
+          aria-controls="domainNameSection"
+        >
+          Domain Name Configuration
+        </button>
+      </h2>
+      <div
+        id="domainNameSection"
+        class="accordion-collapse collapse"
+        aria-labelledby="domainNameHeading"
+        data-bs-parent="#dnsAccordion"
+      >
+        <div class="accordion-body">
           <div class="mb-3">
             <label for="domainName" class="form-label">Domain Name</label>
             <input
@@ -100,26 +132,46 @@
               placeholder="Enter IP Address"
             />
           </div>
-          <button class="btn btn-primary">Save Configuration</button>
+          <button class="btn btn-success w-100">Save Configuration</button>
         </div>
       </div>
-   
-  
+    </div>
+
     <!-- Redirect DNS Traffic Section -->
-    <div class="card ">
-      <div class="card-header">
-        <h5>Redirect DNS Traffic to Local DNS Server</h5>
-      </div>
-      <div class="card-body">
-        <form>
-          <div class="form-check">
-            <input type="checkbox" id="dnsRedirect" class="form-check-input" />
-            <label for="dnsRedirect" class="form-check-label">
-              Enable DNS traffic redirection
-            </label>
-          </div>
-        </form>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="redirectTrafficHeading">
+        <button
+          class="accordion-button collapsed"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#redirectTrafficSection"
+          aria-expanded="false"
+          aria-controls="redirectTrafficSection"
+        >
+          Redirect DNS Traffic to Local DNS Server
+        </button>
+      </h2>
+      <div
+        id="redirectTrafficSection"
+        class="accordion-collapse collapse"
+        aria-labelledby="redirectTrafficHeading"
+        data-bs-parent="#dnsAccordion"
+      >
+        <div class="accordion-body">
+          <form>
+            <div class="form-check">
+              <input
+                type="checkbox"
+                id="dnsRedirect"
+                class="form-check-input"
+              />
+              <label for="dnsRedirect" class="form-check-label">
+                Enable DNS traffic redirection
+              </label>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
-  
-   </div>
+  </div>
+</div>

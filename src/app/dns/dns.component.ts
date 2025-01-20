@@ -10,6 +10,12 @@ import { FormsModule } from '@angular/forms';
   imports: [CommonModule, FormsModule ]
 })
 export class DnsComponent {
+addForwarder() {
+throw new Error('Method not implemented.');
+}
+removeForwarder() {
+throw new Error('Method not implemented.');
+}
   dnsList: string[] = ['127.0.0.1', '4.2.2.2', '8.8.8.8'];
   selectedIndex: number | null = null; // To track the selected item
   newDns: string = ''; // For the input field

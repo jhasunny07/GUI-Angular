@@ -1,214 +1,162 @@
-/* Global styles */
+/* Global Styles */
 .content {
-    padding: 20px 0px 20px 20px;
-    position: relative;
-  }
-  
-  /* App List Styles */
-  .app-list {
-    display: flex;
-   
-    gap: 10px;
-    list-style-type: none;
-    padding: 0;
-    
-    justify-content: flex-start;
-    cursor: pointer;
-    flex-wrap: wrap;
-    color: #007bff;
-  }
-  
-  /* App Item Styles */
-  .app-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    width: 100px;
-    position: relative;
+  padding: 20px 0 20px 20px;
+  position: relative;
+}
 
-    margin-top: 10px;
-  }
-  
-  /* Hover effect for app items */
-  .app-item.hovered {
-    background-color: #e0e0e0;
-  }
-  
-  /* App Icon Style */
-  .app-icon {
-    font-size: 15px;
-    color: #007bff;
-    margin-bottom: 10px
-  }
-  
-  /* App Name Style */
-  .app-name {
-    margin-top: 5px;
-    font-size: 12px;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  /* Dropdown Styles */
-  .dropdown {
-    margin-bottom: 20px;
-    padding-left: 20px;
-    list-style-type: none;
-    position: absolute;
-    top: 0px;
-    left: 100%;
-    z-index: 9999;
-    background-color: #f9f9f9;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.9);
-    opacity: 0;
-    pointer-events: none;
-    visibility: hidden; /* Initially hidden */
-    width: 100px;
-    height: auto;
-    text-align: left;
-    font-size: 12px;
-    transition: opacity 0.3s ease;
-  }
-  
-  /* Dropdown show style */
-  .dropdown.show {
-    opacity: 1;
-    pointer-events: auto;
-    visibility: visible; /* Visible on hover */
-  }
-  
-  /* Dropdown Item Styles */
-  .dropdown-item {
-    text-decoration: none;
-    color: #000;
-    display: block;
-    padding: 5px 10px;
-    margin: 5px 0;
-  }
-  
-  /* Dropdown Item Hover Effect */
-  .dropdown-item.hovered-child {
-    color: #007bff; /* Text color on hover */
-  }
-  
-  .app-details {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: none;
-    color: inherit;
-    padding: 10px 0;
-  }
-  
-  .app-item:hover .app-name {
-    color: #007bff;
-  }
-  
-  
-  @media (max-width: 768px) {
-    .app-list {
-      
-      align-items: flex-start;
-    }
-  
-    .mobile-menu-button {
-      display: block;
-    }
-  
-    .mobile-menu {
-      display: block;
-    }
-  
-    .dropdown {
-      position: relative;
-      top: auto;
-      left: auto;
-      display: block;
-      box-shadow: none;
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .app-list {
-      
-      margin-right: 0;
-      gap: 5px;
-      justify-content: flex-start;
-    }
-  }
-  
-  /*--------------------------Changes--------------------------------------*/
-  
+/* Heading Styles */
+h3 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 22px;
+  font-weight: bold;
+  color: #2c3e50;
+  text-align: left;
+  margin: 10px 0;
+  padding-left: 10px;
+  position: relative;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
 
-  /* General Styles */
-.app-content {
-    padding: 20px 0px 20px 20px;
-    position: relative;
-  }
-  
+h3::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 5px;
+  height: 100%;
+  background-color: #007bff;
+  border-radius: 2px;
+}
 
-  
-  @media (max-width: 768px) {
-    .app-list {
-      margin-right: 20px;
-    }
-  }
-  
-  
-  
-  .app-item-hovered {
-    background-color: #e0e0e0; /* Hover background color */
-  }
-  
+/* App List Styles */
+.app-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 0;
+  list-style: none;
+  justify-content: flex-start;
+  cursor: pointer;
+  color: #007bff;
+}
+
+/* App Item Styles */
+.app-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100px;
+  margin-top: 10px;
+  justify-content: center;
+  height: 100%;
+}
+
+/* App Icon Style */
+.app-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  color: rgb(46, 158, 192);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* App Name Style */
+.app-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #6c757d;
+  text-align: center;
+  margin-top: 10px;
+  display: block;
+  max-width: 12ch;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
+/* Hover Effect */
+.app-item:hover .app-name {
+  color: #2e9ec0;
+  font-weight: bold; 
+}
+
+
+.app-item:hover .app-icon {
+  background-color: #2e9ec0; /* Change the background color */
+  color: #ffffff; /* Change icon color */
+
  
-  
+}
 
-  
-  /* Dropdown Child Item Styles */
-  .dropdown-child {
-    text-decoration: none;
-    color: #000;
-    display: block;
-    padding: 5px 10px;
-    margin: 5px 0;
+@media (hover: none) {
+ 
+  .app-item:hover .app-icon {
+    background-color: initial;
+    color: initial;
+    transform: none;
   }
-  
-  /* Show Dropdown on Hover */
-  .dropdown-show {
-    opacity: 1;
-    pointer-events: auto;
-    visibility: visible; /* Visible on hover */
-  }
-  
-  /* Hover Effect on Dropdown Children */
-  .dropdown-child-hovered {
-    color: #007bff; /* Change color on hover */
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .app-list {
+    gap: 40px;
+    justify-content: flex-start;
   }
 
-  a {
-    text-decoration: none;
+  .app-item {
+    font-size: 20px;
+  }
 
-  } 
+  .app-name {
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    color: #6c757d !important;
+  }
+}
 
+@media (min-width: 768px) {
+  .col-md-custom {
+    flex: 0 0 calc((1 / 8) * 100%);
+    max-width: calc((1 / 8) * 100%);
+  }
+}
+
+/* General Links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Dropdown Styles */
+.dropdown-child {
+  text-decoration: none;
+  color: #000;
+  display: block;
+  padding: 5px 10px;
+  margin: 5px 0;
+}
+
+.dropdown-show {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.dropdown-child:hover {
+  color: #007bff;
+}
+
+
+.app-item:hover {
+  transform: scale(1.05);
   
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
+}

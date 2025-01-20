@@ -1,13 +1,26 @@
-
-  <!-- App Detail View -->
-  <div id="appDetail" class="app-detail">
-    <h2 style="padding: 10px; display: flex; justify-content: center;">Network</h2>
-    <div class="tabs" >
-        <div class="tab" [routerLink]="['interface']" routerLinkActive="active">Interface</div>
-        <div class="tab" [routerLink]="['gateway']" routerLinkActive="active">Gateway</div>
-      <div class="tab" onclick="showTabContent('Priorities')">Priorities</div>
-      <div class="tab" [routerLink]="['dns']" routerLinkActive="active">DNS</div>
-      <div class="tab" onclick="showTabContent('Static Route')">Static Route</div>
-    </div>
-    <router-outlet></router-outlet>
+<div id="appDetail" class="app-detail">
+  <h2 class="text-center py-3">Network</h2>
+  <div class="tabs-container">
+    <nav class="nav nav-tabs">
+      <a class="nav-link" [routerLink]="['interface']" routerLinkActive="active" aria-current="page">
+        Interface
+      </a>
+      <a class="nav-link" [routerLink]="['gateway']" routerLinkActive="active">
+        Gateway
+      </a>
+      <a class="nav-link" >
+        Priorities
+      </a>
+      <a class="nav-link" [routerLink]="['dns']" routerLinkActive="active">
+        DNS
+      </a>
+      <a class="nav-link" >
+        Static Route
+      </a>
+    </nav>
   </div>
+
+  <!-- Content Section -->
+  <router-outlet></router-outlet>
+ 
+</div>

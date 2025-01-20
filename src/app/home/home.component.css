@@ -128,4 +128,8 @@
   .key-metric-card {
     margin-bottom: 15px; /* Space between cards on small screens */
   }
+
+  .container-fluid {
+    padding-bottom: 50px;
+  }
 }
