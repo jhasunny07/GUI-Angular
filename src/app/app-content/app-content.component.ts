@@ -15,8 +15,8 @@ export class AppContentComponent {
   apps: { name: string; routerLink?: string; href?: string; icon: string }[] = [
     { name: 'Network', routerLink: '/list-of-items', icon: 'fas fa-network-wired' },
     { name: 'Firewall', routerLink: '/firewall', icon: 'fas fa-shield-alt' },
-    { name: 'DHCP', href: '/', icon: 'fas fa-server' },
-    { name: 'Services', href: '/', icon: 'fas fa-cogs' },
+    { name: 'DHCP', routerLink: '/dhcp-management',  icon: 'fas fa-server' },
+    { name: 'Services', routerLink: '/ip-lease-report', icon: 'fas fa-cogs' },
     { name: 'Console', href: '/', icon: 'fas fa-terminal' },
     { name: 'Manage Data', href: '/', icon: 'fas fa-database' },
     { name: 'Client Services', href: '/', icon: 'fas fa-users' },

@@ -11,12 +11,17 @@ import { FirewallComponent } from './firewall/firewall.component';
 import { CreateSurfingQuotaPolicyComponent } from './create-surfing-quota-policy/create-surfing-quota-policy.component';
 import { PolicyComponent } from './policy/policy.component';
 import { ManageSurfingQuotaPolicyComponent } from './manage-surfing-quota-policy/manage-surfing-quota-policy.component';
+import { DhcpPageComponent } from './dhcp-page/dhcp-page.component';
+import { IpLeaseReportComponent } from './ip-lease-report/ip-lease-report.component';
+import { DhcpManagementComponent } from './dhcp-management/dhcp-management.component';
 
 
 export const appRoutes: Routes = [
   { path: '', component: HomeComponent },  // This is the default route
   { path: 'network', component: NetworkPageComponent },
   { path: 'interface', component: InterfaceComponent },
+  { path: 'dhcp', component: DhcpPageComponent },
+  { path: 'ip-lease-report', component: IpLeaseReportComponent },
   {
     path: 'list-of-items',
     component: ListOfItemsComponent,
@@ -52,6 +57,18 @@ export const appRoutes: Routes = [
     path: 'firewall-create',
     component: FirewallCreateComponent,
   },
+
+  {
+    path: 'dhcp-management',
+    component: DhcpManagementComponent,
+    children: [
+      { path: '', redirectTo: 'dhcp', pathMatch: 'full' }, // Default route
+      { path: 'dhcp', component: DhcpPageComponent },
+      { path: 'ip-lease-report', component: IpLeaseReportComponent },
+   
+    ]
+  },
+
   { path: 'firewall-manage', component: FirewallManageComponent},
   { path: 'CreateSurfingQuotaPolicy', component: CreateSurfingQuotaPolicyComponent },
   { path: '**', redirectTo: '' },  // Fallback route

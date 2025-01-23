@@ -1,0 +1,26 @@
+<div id="appDetail" class="app-detail container-fluid p-4">
+    <h2 class="text-center py-3">DHCP Management</h2>
+  
+    <!-- Underline Tab Navigation -->
+    <div class="underline-tabs d-flex justify-content-center">
+      <a
+        class="underline-tab"
+        [routerLink]="['dhcp']"
+        routerLinkActive="active-underline"
+        >Manage DHCP</a
+      >
+      <a
+        class="underline-tab"
+        [routerLink]="['ip-lease-report']"
+        routerLinkActive="active-underline"
+        >IP Lease Report</a
+      >
+      
+    </div>
+  
+    <!-- Content Section -->
+    <div class="tab-content  p-1 shadow rounded bg-light">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  

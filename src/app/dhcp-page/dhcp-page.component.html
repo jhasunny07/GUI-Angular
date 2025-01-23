@@ -1,0 +1,85 @@
+<!-- dhcp-page.component.html -->
+<div class="container-fluid">
+    <div class="row">
+
+     
+  
+      <!-- Configuration Section -->
+      <div class="col-12 col-lg-6 mb-4">
+        <div class="card shadow-sm">
+          <div class="card-header bg-primary text-white">
+            <h5>DHCP Configuration</h5>
+          </div>
+          <div class="card-body">
+            <form>
+              <div class="mb-3">
+                <label for="ipRange" class="form-label">IP Range</label>
+                <input type="text" id="ipRange" class="form-control" placeholder="e.g., 192.168.1.100 - 192.168.1.200">
+              </div>
+              <div class="mb-3">
+                <label for="subnetMask" class="form-label">Subnet Mask</label>
+                <input type="text" id="subnetMask" class="form-control" placeholder="e.g., 255.255.255.0">
+              </div>
+              <div class="mb-3">
+                <label for="gateway" class="form-label">Default Gateway</label>
+                <input type="text" id="gateway" class="form-control" placeholder="e.g., 192.168.1.1">
+              </div>
+              <button type="submit" class="btn btn-primary w-100">Save Configuration</button>
+            </form>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Active Leases Section -->
+      <div class="col-12 col-lg-6 mb-4">
+        <div class="card shadow-sm">
+          <div class="card-header bg-success text-white">
+            <h5>Active Leases</h5>
+          </div>
+          <div class="card-body">
+            <table class="table table-hover">
+              <thead class="table-light">
+                <tr>
+                  <th>IP Address</th>
+                  <th>MAC Address</th>
+                  <th>Lease Time</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>192.168.1.101</td>
+                  <td>00:1A:2B:3C:4D:5E</td>
+                  <td>24h</td>
+                </tr>
+                <tr>
+                  <td>192.168.1.102</td>
+                  <td>00:1A:2B:3C:4D:5F</td>
+                  <td>23h</td>
+                </tr>
+                <tr>
+                  <td colspan="3" class="text-center">No more active leases.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Available Pools Section -->
+      <div class="col-12">
+        <div class="card shadow-sm">
+          <div class="card-header bg-info text-white">
+            <h5>Available Pools</h5>
+          </div>
+          <div class="card-body">
+            <ul class="list-group">
+              <li class="list-group-item">Pool 1: 192.168.1.100 - 192.168.1.150</li>
+              <li class="list-group-item">Pool 2: 192.168.1.151 - 192.168.1.200</li>
+              <li class="list-group-item text-center">No more pools available.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
