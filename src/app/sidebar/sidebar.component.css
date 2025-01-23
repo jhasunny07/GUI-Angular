@@ -1,6 +1,4 @@
-/* Sidebar.css */
 
-/* Body styling */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -112,8 +110,7 @@ body {
  
     padding: 20px;
   }
-  
-  /* Second Sidebar (will appear beside the first sidebar) */
+
   .second-sidebar {
     position: fixed;
     top: 76px;
@@ -183,13 +180,7 @@ body {
     text-decoration: none;
     color: inherit;
   }
-  
-  
 
-  
-  
-  
-  /* Adjust when second sidebar is visible */
   .sidebar-container.shifted .sidebar {
     transform: translateX(0); /* Main sidebar stays in place */
   }
@@ -215,38 +206,24 @@ body {
   }
 
 
-  /*changes skdjhasjdhjaskdhjashdjhasjhdjkashd*/
-
-
 /* Sidebar styles */
 .sidebar-container {
     display: flex;
     transition: all 0.3s ease;
   }
-  
-  
-  
- 
-
-  
 
   .sidebar-item h6 {
     margin: 0;
     font-size: 14px;
   }
   
-  /* Second Sidebar */
-  
-  
- 
-  
-  /* Main content shifts */
+
   .sidebar-container.shifted .main-content {
     margin-left: 300px;
   }
   
  
-  /* Additional CSS for App container */
+
 .app-container {
     position: fixed;
     top: 65px;
@@ -273,7 +250,7 @@ body {
     margin-bottom: 20px; 
   }
 
-  /* App Icon */
+
 
 
   .submenu-container {
@@ -281,9 +258,9 @@ body {
   }
   
   .submenu-header {
-    display: flex;            /* Use Flexbox for alignment */
-    align-items: center;      /* Vertically center the items */
-    gap: 0.5rem;              /* Add space between the button and heading */
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
   }
 
  .submenu-header {
@@ -298,57 +275,47 @@ body {
   background: none;
   border: none;
   cursor: pointer;
-  color: #007bff; /* Blue color for the icon */
+  color: #007bff;
   font-size: 20px;
-  margin-right: 10px; /* Space between the back button and the heading */
+  margin-right: 10px; 
   display: flex;
   align-items: center;
 }
 
 .back-button:hover {
-  color: #0056b3; /* Darker blue on hover */
+  color: #0056b3;
 }
 
 .submenu-header h6 {
   margin: 0;
   font-size: 18px;
-  color: #333; /* Dark text color for better readability */
+  color: #333; 
   text-align: left;
-  flex-grow: 1; /* Pushes the heading to take up available space */
+  flex-grow: 1;
 }
 
   
   .back-button {
-    background-color: transparent; /* Transparent button background */
-    border: none;                 /* Remove border */
-    color: #007bff;               /* Icon color */
-    font-size: 20px;            /* Icon size */
-    cursor: pointer;              /* Pointer cursor */
-    display: flex;                /* Ensure icon is centered */
+    background-color: transparent;
+    border: none;
+    color: #007bff;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
     align-items: center;
-                /* Add padding for better click area */
-    transition: color 0.3s ease;  /* Smooth hover effect */
+    transition: color 0.3s ease;
   }
   
   .back-button:hover {
-    color: #0056b3;               /* Darker blue on hover */
+    color: #0056b3;
   }
-  
 
-  
-
-
-
- 
  
   .back-button:focus {
-    outline: none;                /* Remove focus outline */
-    color: #003d80;               /* Slightly darker hover effect on focus */
+    outline: none;
+    color: #003d80;
   }
   
-
-
-/* Adjust spacing for menu button and sidebar menu */
 
 
 /* App Sidebar */
@@ -401,8 +368,6 @@ body {
 
   
 }
-
-
 
 .app-sidebar h3 {
   text-align: center;
@@ -562,18 +527,6 @@ body {
     left: 0 !important;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* Dark mode global styling */
