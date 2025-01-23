@@ -2,6 +2,7 @@ import { Component, ElementRef, Renderer2, OnInit, OnDestroy } from '@angular/co
 import { CommonModule } from '@angular/common';
 import { AppContentComponent } from '../app-content/app-content.component';
 import { Router, NavigationStart, RouterModule,NavigationEnd } from '@angular/router';  // Import Router and NavigationStart
+import { css } from '@primeng/themes';
 
 @Component({
   selector: 'app-sidebar',
