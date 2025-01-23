@@ -1,10 +1,29 @@
 
-  <!-- App Detail View -->
-  <div id="appDetail" class="app-detail">
-    <h2 style="padding: 10px; display: flex; justify-content: center;">Surfing Quota</h2>
-    <div class="tabs" >
-        <div class="tab" [routerLink]="['CreateSurfingQuotaPolicy']" routerLinkActive="active">Create Surfing Quota</div>
-        <div class="tab" [routerLink]="['ManageSurfingQuotaPolicy']" routerLinkActive="active">Manage Surfing Quota</div>
-    </div>
+
+
+  <!-- Updated App Detail View with New Design -->
+<div id="appDetail" class="app-detail container-fluid p-4">
+  <h2 class="text-center py-3">Surfing Quota</h2>
+
+  <!-- Underline Tab Navigation -->
+  <div class="underline-tabs d-flex justify-content-center">
+    <a
+      class="underline-tab"
+      [routerLink]="['CreateSurfingQuotaPolicy']"
+      routerLinkActive="active-underline"
+      >Create Surfing Quota</a
+    >
+    <a
+      class="underline-tab"
+      [routerLink]="['ManageSurfingQuotaPolicy']"
+      routerLinkActive="active-underline"
+      >Manage Surfing Quota</a
+    >
+    
+  </div>
+
+  <!-- Content Section -->
+  <div class="tab-content mt-4 p-4 shadow rounded bg-light">
     <router-outlet></router-outlet>
   </div>
+</div>

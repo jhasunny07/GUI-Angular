@@ -11,4 +11,9 @@ import { RouterModule } from '@angular/router';
 })
 export class PolicyComponent {
 
+  activeTab: string = ''; // Keeps track of the currently active non-routing tab
+
+  setActiveTab(tabName: string): void {
+    this.activeTab = tabName; // Update the active tab
+  }
 }

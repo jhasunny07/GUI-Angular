@@ -39,10 +39,11 @@ export class ManageSurfingQuotaPolicyComponent {
 
   // Temporary variable to hold the selected policy for editing
   selectedPolicy: any = null;
-
+  showModal = false;
   // Trigger edit mode
   editPolicy(policy: any) {
     this.selectedPolicy = { ...policy };
+    this.showModal = true;
   }
 
   // Save edited policy
@@ -62,5 +63,11 @@ export class ManageSurfingQuotaPolicyComponent {
   // Cancel editing
   cancelEdit() {
     this.selectedPolicy = null;
+    this.showModal = false;
   }
+
+
+
+
+  
 }

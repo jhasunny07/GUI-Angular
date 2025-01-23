@@ -1,12 +1,28 @@
-  <!-- App Detail View -->
-  <div id="appDetail" class="app-detail">
-    <h2 style="padding: 10px; display: flex; justify-content: center;">Firewall</h2>
-    <div class="tabs" >
-        <div class="tab" [routerLink]="['firewall-create']" routerLinkActive="active">Create</div>
-        <div class="tab" [routerLink]="['firewall-manage']" routerLinkActive="active">Manage</div>
-        <div class="tab" [routerLink]="['dos settings']" routerLinkActive="active">DoS Settings</div>
-        <div class="tab" [routerLink]="['dos bypass']" routerLinkActive="active"> DoS Bypass</div>
-        <div class="tab" [routerLink]="['free sites']" routerLinkActive="active"> Free Sites</div>
-    </div>
+<!-- Updated App Detail View with New Design -->
+<div id="appDetail" class="app-detail container-fluid p-4">
+  <h2 class="text-center py-3">Firewall</h2>
+
+  <!-- Underline Tab Navigation -->
+  <div class="underline-tabs d-flex justify-content-center">
+    <a
+      class="underline-tab"
+      [routerLink]="['firewall-create']"
+      routerLinkActive="active-underline"
+      >Create</a
+    >
+    <a
+      class="underline-tab"
+      [routerLink]="['firewall-manage']"
+      routerLinkActive="active-underline"
+      >Manage</a
+    >
+    <span class="underline-tab disabled-tab">DoS Settings</span>
+    <span class="underline-tab disabled-tab">DoS Bypass</span>
+    <span class="underline-tab disabled-tab">Free Sites</span>
+  </div>
+
+  <!-- Content Section -->
+  <div class="tab-content mt-4 p-4 shadow rounded bg-light">
     <router-outlet></router-outlet>
   </div>
+</div>

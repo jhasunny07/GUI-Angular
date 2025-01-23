@@ -1,26 +1,35 @@
-<div id="appDetail" class="app-detail">
+<div id="appDetail" class="app-detail container-fluid p-4">
   <h2 class="text-center py-3">Network</h2>
-  <div class="tabs-container">
-    <nav class="nav nav-tabs">
-      <a class="nav-link" [routerLink]="['interface']" routerLinkActive="active" aria-current="page">
-        Interface
-      </a>
-      <a class="nav-link" [routerLink]="['gateway']" routerLinkActive="active">
-        Gateway
-      </a>
-      <a class="nav-link" >
-        Priorities
-      </a>
-      <a class="nav-link" [routerLink]="['dns']" routerLinkActive="active">
-        DNS
-      </a>
-      <a class="nav-link" >
-        Static Route
-      </a>
-    </nav>
+
+  <!-- Underline Tab Navigation -->
+  <div class="underline-tabs d-flex justify-content-center">
+    <a
+      class="underline-tab"
+      [routerLink]="['interface']"
+      routerLinkActive="active-underline"
+      >Interface</a
+    >
+    <a
+      class="underline-tab"
+      [routerLink]="['gateway']"
+      routerLinkActive="active-underline"
+      >Gateway</a
+    >
+    <span class="underline-tab disabled-tab">Priorities</span>
+    <a
+      class="underline-tab"
+      [routerLink]="['dns']"
+      routerLinkActive="active-underline"
+      >DNS</a
+    >
+    <span class="underline-tab disabled-tab">Static Route</span>
+
+    <span class="underline-tab disabled-tab">Priorities</span>
+    <span class="underline-tab disabled-tab">Priorities</span>
   </div>
 
   <!-- Content Section -->
-  <router-outlet></router-outlet>
- 
+  <div class="tab-content mt-4 p-4 shadow rounded bg-light">
+    <router-outlet></router-outlet>
+  </div>
 </div>

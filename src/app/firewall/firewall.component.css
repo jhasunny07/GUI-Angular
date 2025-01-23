@@ -1,80 +1,102 @@
-.app-item {
-    width: 80px;
-    height: 100px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 10px;
+
+    
+ /* Underline Tabs Container */
+.underline-tabs {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap; /* Allow tabs to wrap in smaller screens */
+  text-align: center;
+  position: sticky; /* Make the tabs sticky */
+  top: 0; /* Position the tabs at the top of the page */
+  background-color: white; /* Ensure background color is applied to avoid transparency */
+  z-index: 800; /* Ensure it stays on top of other content */
+  padding: 10px 0; /* Optional: Add padding to improve appearance */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for better visibility */
+}
+
+
+/* Individual Underline Tab */
+.underline-tab {
+  display: inline-block;
+  padding: 10px;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 14px;
+  color: #333;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.3s ease;
+  min-width: 100px; /* Ensure tabs have enough space */
+}
+
+/* Hover Effect */
+.underline-tab:hover {
+  color: #007bff;
+}
+
+/* Active Underline */
+.active-underline {
+  color: #007bff;
+  font-weight: bold;
+  border-bottom: 2px solid #007bff;
+}
+
+/* Disabled Tab Style */
+.disabled-tab {
+  color: #aaa;
+  pointer-events: none;
+  position: relative;
+}
+
+/* Tab Content Section */
+.tab-content {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  animation: slideUp 0.4s ease-out;
+}
+
+/* Content Animation */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .underline-tabs {
+    gap: 15px;
+    text-align: center;
   }
 
-  .app-item .icon {
-    font-size: 32px;
-    margin-bottom: 8px;
-  }
-
-  .app-item span {
-    font-size: 14px;
-    color: #333;
-  }
-
-  .back-button {
-    font-size: 16px;
-    color: #007bff;
-    cursor: pointer;
-    margin-bottom: 20px;
-    display: block;
-  }
-
-  .tabs {
-    display: flex;
-    border-bottom: 2px solid #ddd;
-    margin-bottom: 20px;
-  }
-
-  .tab {
-    padding: 10px 20px;
-    cursor: pointer;
-    border: 1px solid #ddd;
-    border-bottom: none;
-    background-color: #f8f9fa;
-  }
-
-  .tab.active {
-    background-color: #ffffff;
-    border-bottom: 2px solid #007bff;
-    color: #007bff;
+  .underline-tab {
+    font-size: 12px;
+    padding: 8px;
+    min-width: 80px; /* Adjust tab width for mobile view */
   }
 
   .tab-content {
-    display: none;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  .underline-tab {
+    font-size: 11px;
+    padding: 6px;
+    min-width: 70px; /* Further adjust for very small screens */
   }
 
-  .tab-content.active {
-    display: block;
-  }
-
-  .tabs {
-    display: flex;
-    padding: 10px ;
-  }
-  .tab {
+  .tab-content {
     padding: 10px;
-    cursor: pointer;
   }
-  .tab.active {
-    font-weight: bold;
-    border-bottom: 2px solid #000;
-  }
-  a {
-    text-decoration: none;
-    color: #000;
-  }
-
-
-    
- 
+}

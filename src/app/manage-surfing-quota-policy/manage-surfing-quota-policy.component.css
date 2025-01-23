@@ -2,16 +2,33 @@
   position: fixed;
   top: 52%;
   left: 50%;
-  width: 600px;
+  width: 350px;
   max-height: 90vh; /* Ensures the modal does not exceed 80% of the viewport height */
   overflow-y: auto; /* Enables vertical scrolling */
   transform: translate(-50%, -50%);
   background-color: #fff;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 9px 33px 3px rgba(0, 0, 0, 0.7);
   padding: 20px;
   z-index: 1000;
 }
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  backdrop-filter: blur(5px); /* Apply blur effect */
+  z-index: 999; /* Behind the modal */
+  display: none; /* Initially hidden */
+}
+
+/* Display overlay when modal is active */
+.show-overlay {
+  display: block;
+}
+
 
 .modal-content h4 {
   font-size: 1.5rem;

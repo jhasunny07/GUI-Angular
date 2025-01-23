@@ -158,5 +158,5 @@ a {
 
 .app-item:hover {
   transform: scale(1.05);
-  
+  opacity: 1;
 }
