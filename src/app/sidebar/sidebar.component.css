@@ -1,5 +1,6 @@
+/* Sidebar.css */
 
-
+/* Body styling */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -111,7 +112,8 @@ body {
  
     padding: 20px;
   }
-
+  
+  /* Second Sidebar (will appear beside the first sidebar) */
   .second-sidebar {
     position: fixed;
     top: 76px;
@@ -181,7 +183,13 @@ body {
     text-decoration: none;
     color: inherit;
   }
+  
+  
 
+  
+  
+  
+  /* Adjust when second sidebar is visible */
   .sidebar-container.shifted .sidebar {
     transform: translateX(0); /* Main sidebar stays in place */
   }
@@ -207,24 +215,38 @@ body {
   }
 
 
+ 
+
+
 /* Sidebar styles */
 .sidebar-container {
     display: flex;
     transition: all 0.3s ease;
   }
+  
+  
+  
+ 
+
+  
 
   .sidebar-item h6 {
     margin: 0;
     font-size: 14px;
   }
   
-
+  /* Second Sidebar */
+  
+  
+ 
+  
+  /* Main content shifts */
   .sidebar-container.shifted .main-content {
     margin-left: 300px;
   }
   
  
-
+  /* Additional CSS for App container */
 .app-container {
     position: fixed;
     top: 65px;
@@ -251,7 +273,7 @@ body {
     margin-bottom: 20px; 
   }
 
-
+  /* App Icon */
 
 
   .submenu-container {
@@ -259,9 +281,9 @@ body {
   }
   
   .submenu-header {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    display: flex;            /* Use Flexbox for alignment */
+    align-items: center;      /* Vertically center the items */
+    gap: 0.5rem;              /* Add space between the button and heading */
   }
 
  .submenu-header {
@@ -276,47 +298,57 @@ body {
   background: none;
   border: none;
   cursor: pointer;
-  color: #007bff;
+  color: #007bff; /* Blue color for the icon */
   font-size: 20px;
-  margin-right: 10px; 
+  margin-right: 10px; /* Space between the back button and the heading */
   display: flex;
   align-items: center;
 }
 
 .back-button:hover {
-  color: #0056b3;
+  color: #0056b3; /* Darker blue on hover */
 }
 
 .submenu-header h6 {
   margin: 0;
   font-size: 18px;
-  color: #333; 
+  color: #333; /* Dark text color for better readability */
   text-align: left;
-  flex-grow: 1;
+  flex-grow: 1; /* Pushes the heading to take up available space */
 }
 
   
   .back-button {
-    background-color: transparent;
-    border: none;
-    color: #007bff;
-    font-size: 20px;
-    cursor: pointer;
-    display: flex;
+    background-color: transparent; /* Transparent button background */
+    border: none;                 /* Remove border */
+    color: #007bff;               /* Icon color */
+    font-size: 20px;            /* Icon size */
+    cursor: pointer;              /* Pointer cursor */
+    display: flex;                /* Ensure icon is centered */
     align-items: center;
-    transition: color 0.3s ease;
+                /* Add padding for better click area */
+    transition: color 0.3s ease;  /* Smooth hover effect */
   }
   
   .back-button:hover {
-    color: #0056b3;
-  }
-
- 
-  .back-button:focus {
-    outline: none;
-    color: #003d80;
+    color: #0056b3;               /* Darker blue on hover */
   }
   
+
+  
+
+
+
+ 
+ 
+  .back-button:focus {
+    outline: none;                /* Remove focus outline */
+    color: #003d80;               /* Slightly darker hover effect on focus */
+  }
+  
+
+
+/* Adjust spacing for menu button and sidebar menu */
 
 
 /* App Sidebar */
@@ -369,6 +401,8 @@ body {
 
   
 }
+
+
 
 .app-sidebar h3 {
   text-align: center;
@@ -470,6 +504,170 @@ body {
 
 .app-content-sidebar.darkmode {
   background-color: #121212;
+}
+
+/* Media Query for Mobile Devices */
+@media screen and (max-width: 768px) {
+  /* Sidebar shifts to the bottom */
+  .sidebar {
+    position: fixed;
+    top: auto;
+    bottom: -1px;
+    left: 0;
+    width: 100%; /* Full width at the bottom */
+    height: 60px; /* Adjust height as needed */
+    display: flex; /* Align items horizontally */
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3); /* Shadow on top */
+    z-index: 1000;
+    padding: 0;
+  }
+
+  .sidebar-menu {
+    display: flex; /* Make the menu items horizontal */
+    flex-direction: row;
+    margin: 0;
+  }
+  .app-icon {
+    font-size: 36px; /* Increase the font size to make the icon bigger */
+  }
+
+  .sidebar-item {
+    padding: 0;
+    margin: 0 10px; /* Add spacing between items */
+    font-size: 20px; /* Reduce font size for mobile */
+  }
+
+  /* Second Sidebar Hidden on Mobile */
+  .second-sidebar {
+    display: none; /* Hide the second sidebar for mobile devices */
+  }
+
+  /* AppContent Sidebar Adjustments */
+
+    .app-content-sidebar {
+      left: 0 ; /* Start from the left for mobile view */
+      width: 100%; /* Full width */
+      height: calc(100% - 120px); /* Full height on mobile screens */
+    }
+  
+  
+
+  .main-content {
+    margin-top: 0; /* Reset margin on mobile */
+  }
+
+  .app-content-sidebar.open {
+    left: 0 !important;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Dark mode global styling */
+body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+body.dark-mode a {
+  color: #90caf9;
+}
+
+body.dark-mode h3 {
+  color: #ffffff;
+}
+
+/* Dark mode styling for Sidebar */
+
+body.dark-mode .sidebar {
+  background-color: #1e1e1e;
+}
+
+body.dark-mode .second-sidebar {
+  background-color: #1e1e1e;
+}
+
+/* Dark mode toggle switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 34px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+
+@media screen and (max-width: 768px) {
+  .switch {
+    display: none;
+  }
+
+
+    .sidebar {
+        /* Reduce height on small screens */
+        padding: 0 10px; /* Optional: add some padding for small screens */
+        justify-content: space-evenly;
+    }
+
+   
+ 
+}
+
+input:checked + .slider:before {
+  transform: translateX(14px);
+}
+
+
+.app-content.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
 }
 
 
