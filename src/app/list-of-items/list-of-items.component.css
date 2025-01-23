@@ -9,7 +9,7 @@
   position: sticky; /* Make the tabs sticky */
   top: 0; /* Position the tabs at the top of the page */
   background-color: white; /* Ensure background color is applied to avoid transparency */
-  z-index: 800; /* Ensure it stays on top of other content */
+  z-index: 200; /* Ensure it stays on top of other content */
   padding: 10px 0; /* Optional: Add padding to improve appearance */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for better visibility */
 }

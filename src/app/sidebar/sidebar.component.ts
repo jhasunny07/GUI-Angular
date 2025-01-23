@@ -52,6 +52,10 @@ export class SidebarComponent implements OnInit, OnDestroy {
         this.closeSidebars();  // Hide the sidebar on route change
       }
     });
+
+    console.log('Home Icon:', document.querySelector('.fa-home'));
+    console.log('Envelope Icon:', document.querySelector('.fa-envelope'));
+    console.log('Calendar Icon:', document.querySelector('.fa-calendar'));
   }
 
   ngOnDestroy() {

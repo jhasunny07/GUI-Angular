@@ -3,30 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CanvasJS Test</title>
-  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  <title>Font Awesome Test</title>
+  <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.min.css">
 </head>
 <body>
-  <div id="chartContainer" style="height: 370px; width: 100%;"></div>
-
-  <script>
-    var chart = new CanvasJS.Chart("chartContainer", {
-      title: {
-        text: "Simple Chart"
-      },
-      data: [
-        {
-          type: "column",
-          dataPoints: [
-            { label: "Jan", y: 10 },
-            { label: "Feb", y: 15 },
-            { label: "Mar", y: 25 }
-          ]
-        }
-      ]
-    });
-
-    chart.render();
-  </script>
+  <i class="fas fa-home"></i> Home
+  <i class="fas fa-envelope"></i> Email
 </body>
 </html>
