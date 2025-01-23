@@ -87,13 +87,11 @@ body {
 }
 
 .sidebar-item {
-
   display: flex;
   flex-direction: column;
   font-size: 93px;
   align-items: center;
   cursor: pointer;
-
   transition: background-color 0.3s ease;
   margin-bottom: 34px;
 }
@@ -103,8 +101,6 @@ body {
   bottom: 20px;
   left: 20px;
 }
-
-
 
 /* Nested menu for second sidebar toggle */
 .nested-menu {
@@ -143,8 +139,6 @@ body {
   box-shadow: 4px 5px 5px rgba(0, 0, 0, 0.5);
 }
 
-
-
 /* Custom Scrollbar Styles */
 #homeSidebar .submenu::-webkit-scrollbar {
   width: 8px;
@@ -163,8 +157,6 @@ body {
 #homeSidebar .submenu::-webkit-scrollbar-thumb:hover {
   background: #0056b3;
 }
-
-
 
 .second-sidebar ul {
   padding: 0;
@@ -187,17 +179,10 @@ body {
 
 }
 
-
-
 .second-sidebar li a {
   text-decoration: none;
   color: inherit;
 }
-
-
-
-
-
 
 /* Adjust when second sidebar is visible */
 .sidebar-container.shifted .sidebar {
@@ -226,37 +211,21 @@ body {
   }
 }
 
-
-/*changes skdjhasjdhjaskdhjashdjhasjhdjkashd*/
-
-
 /* Sidebar styles */
 .sidebar-container {
   display: flex;
   transition: all 0.3s ease;
 }
 
-
-
-
-
-
-
 .sidebar-item h6 {
   margin: 0;
   font-size: 14px;
 }
 
-/* Second Sidebar */
-
-
-
-
 /* Main content shifts */
 .sidebar-container.shifted .main-content {
   margin-left: 300px;
 }
-
 
 /* Additional CSS for App container */
 .app-container {
@@ -286,8 +255,6 @@ body {
 }
 
 /* App Icon */
-
-
 .submenu-container {
   padding: 1rem;
 }
@@ -306,8 +273,6 @@ body {
   align-items: center;
   margin-bottom: 20px;
 }
-
-
 
 .back-button {
   background: none;
@@ -337,7 +302,6 @@ body {
   /* Pushes the heading to take up available space */
 }
 
-
 .back-button {
   background-color: transparent;
   /* Transparent button background */
@@ -362,24 +326,12 @@ body {
   /* Darker blue on hover */
 }
 
-
-
-
-
-
-
-
 .back-button:focus {
   outline: none;
   /* Remove focus outline */
   color: #003d80;
   /* Slightly darker hover effect on focus */
 }
-
-
-
-/* Adjust spacing for menu button and sidebar menu */
-
 
 /* App Sidebar */
 .app-sidebar {
@@ -414,7 +366,6 @@ body {
   margin-top: 20px;
 }
 
-
 @media screen and (max-width: 768px) {
   .app-icon {
     position: relative;
@@ -433,11 +384,7 @@ body {
     /* Add shadow to make it stand out */
 
   }
-
-
 }
-
-
 
 .app-sidebar h3 {
   text-align: center;
@@ -484,12 +431,9 @@ body {
 }
 
 
-
 .app-icon:hover {
   background-color: #007bff;
-  /* Blue background on hover */
   color: white;
-  /* White icon on hover */
 }
 
 /* Custom Scrollbar Styles */
@@ -626,20 +570,6 @@ body {
     left: 0 !important;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* Dark mode global styling */
 body.dark-mode {
   background-color: #121212;
@@ -736,7 +666,6 @@ input:checked+.slider:before {
 }
 
 
-
 /* Ensure the second sidebar is visible on small screens */
 @media (max-width: 768px) {
   .second-sidebar {
@@ -765,10 +694,6 @@ input:checked+.slider:before {
   }
 }
 
-
-
-
-
 .dropdown-container {
   position: fixed;
   background: #333;
@@ -796,8 +721,6 @@ input:checked+.slider:before {
 .submenu-item:hover {
   cursor: pointer;
 }
-
-
 
 .submenu {
   position: absolute;
