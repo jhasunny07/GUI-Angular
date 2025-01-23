@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, AfterViewInit  } from '@angular/core';
+import { ChartType } from 'chart.js';
 import { ApexChart, ApexXAxis, ApexYAxis, ApexTooltip, ApexAxisChartSeries, NgApexchartsModule } from 'ng-apexcharts';
 
 @Component({
@@ -111,8 +112,37 @@ export class HomeComponent implements AfterViewInit, OnInit {
     },
     colors: ['var(--primary-color)'], // Use theme color for area chart
   };
-  
 
+
+
+
+
+  
+  chartBrowserUsageOptions = {
+    series: [{
+      name: 'Browser Usage',
+      data: [10, 20, 30, 40, 50]
+    }] as ApexAxisChartSeries,
+    chart: {
+      type: 'line', // Ensure this is of type ChartType
+      height: 350
+    } as ApexChart,
+    xaxis: {
+      categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May']
+    } as ApexXAxis,
+    yaxis: {
+      title: {
+        text: 'Usage'
+      }
+    } as ApexYAxis,
+    tooltip: {
+      shared: true,
+      intersect: false
+    } as ApexTooltip,
+    colors: ['#FF5733']
+  };
+
+  
   // Alerts data (this can be dynamically populated)
   alerts = [
     { message: 'System overload detected!' },

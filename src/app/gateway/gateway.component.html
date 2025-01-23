@@ -5,6 +5,7 @@
 
     <!-- IPv4 Section -->
     <h3>IPv4 Gateways</h3>
+    <div class="table-responsive">
     <table class="table table-bordered">
       <thead>
         <tr>
@@ -33,6 +34,8 @@
         </tr>
       </tbody>
     </table>
+
+  </div>
 
     <!-- Add Button -->
     <button class="btn btn-primary" (click)="toggleForm('ipv4')">Add IPv4 Gateway</button>
@@ -115,6 +118,7 @@
     <!-- IPv6 Section -->
     <h3 class=" mt-4">IPv6 Gateways</h3>
    <!-- IPv6 Table (if applicable) -->
+    <div class="table-responsive">
     <table class="table table-bordered">
     <thead>
       <tr>
@@ -143,7 +147,7 @@
       </tr>
     </tbody>
   </table>
-
+    </div>
     <!-- Add Button for IPv6 -->
     <button class="btn btn-primary" (click)="toggleForm('ipv6')">Add IPv6 Gateway</button>
   </div>
