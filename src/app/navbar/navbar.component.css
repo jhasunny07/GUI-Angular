@@ -44,6 +44,7 @@
     position: relative;
     margin-left: 20px;
     top: 0px;
+    mix-blend-mode: multiply;
   }
 
   .navbar-user-icon {
