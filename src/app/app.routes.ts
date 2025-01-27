@@ -14,6 +14,12 @@ import { ManageSurfingQuotaPolicyComponent } from './manage-surfing-quota-policy
 import { DhcpPageComponent } from './dhcp-page/dhcp-page.component';
 import { IpLeaseReportComponent } from './ip-lease-report/ip-lease-report.component';
 import { DhcpManagementComponent } from './dhcp-management/dhcp-management.component';
+import { SearchPageComponent } from './search-page/search-page.component';
+
+import { DateWiseReportComponent } from './date-wise-report/date-wise-report.component';
+import { ReportComponent } from './report/report.component';
+import { InternetUsageReportComponent } from './internet-usage-report/internet-usage-report.component';
+import { ReportDashboardComponent } from './report-dashboard/report-dashboard.component';
 
 
 export const appRoutes: Routes = [
@@ -22,6 +28,7 @@ export const appRoutes: Routes = [
   { path: 'interface', component: InterfaceComponent },
   { path: 'dhcp', component: DhcpPageComponent },
   { path: 'ip-lease-report', component: IpLeaseReportComponent },
+  
   {
     path: 'list-of-items',
     component: ListOfItemsComponent,
@@ -53,6 +60,7 @@ export const appRoutes: Routes = [
     ]
   },
   { path: 'dns', component: DnsComponent },
+  { path: 'search-transaction', component: SearchPageComponent },
   {
     path: 'firewall-create',
     component: FirewallCreateComponent,
@@ -69,6 +77,20 @@ export const appRoutes: Routes = [
     ]
   },
 
+    {
+    path: 'report/1',
+    component: InternetUsageReportComponent,
+    children: [
+      { path: '', redirectTo: 'date-wise', pathMatch: 'full' }, // Default route
+      { path: 'date-wise', component: DateWiseReportComponent },
+      { path: 'RD', component: ReportDashboardComponent},
+   
+    ]
+  },
+  { path: 'report/Date-wise Usage Report', component: DateWiseReportComponent },
+
+{ path: 'report', component: ReportComponent },
+{path: 'report/1', component: InternetUsageReportComponent },
   { path: 'firewall-manage', component: FirewallManageComponent},
   { path: 'CreateSurfingQuotaPolicy', component: CreateSurfingQuotaPolicyComponent },
   { path: '**', redirectTo: '' },  // Fallback route

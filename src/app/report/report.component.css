@@ -1,0 +1,130 @@
+/* General container styling */
+.container-fluid {
+  margin-top: 30px;
+  background-color: #f1f1f1; /* Light background for a soothing effect */
+}
+
+/* Dashboard Header */
+h1.display-4 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #343a40; /* Darker shade for text */
+}
+
+p.lead {
+  font-size: 1.25rem;
+  font-weight: 300;
+  color: #6c757d; /* Soft text color */
+}
+
+/* Report Cards */
+.card {
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  background-color: #ffffff; /* White background for card */
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+}
+
+.card-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #343a40; /* Darker text color */
+  margin-bottom: 10px;
+}
+
+.card-text {
+  font-size: 1rem;
+  color: #6c757d; /* Light text color for description */
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Button styling */
+.btn-primary {
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 12px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+/* Icon Styling */
+.card i {
+  color: #6c757d; /* Light grey for icons */
+}
+
+.card:hover i {
+  color: #007bff; /* Color change on hover */
+}
+
+/* Responsiveness */
+@media (max-width: 576px) {
+  .row-cols-1 {
+    grid-template-columns: 1fr !important; /* Single column on small screens */
+  }
+}
+
+@media (min-width: 576px) {
+  .row-cols-sm-2 {
+    grid-template-columns: 1fr 1fr !important; /* Two columns on medium screens */
+  }
+}
+
+@media (min-width: 992px) {
+  .row-cols-md-3 {
+    grid-template-columns: 1fr 1fr 1fr !important; /* Three columns on larger screens */
+  }
+}
+
+@media (min-width: 1200px) {
+  .row-cols-lg-4 {
+    grid-template-columns: 1fr 1fr 1fr 1fr !important; /* Four columns on large screens */
+  }
+}
+
+/* Flexbox Grid System */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.col {
+  flex: 1 1 calc(25% - 20px); /* Default to 4 columns */
+  max-width: calc(25% - 20px);
+}
+
+@media (max-width: 992px) {
+  .col {
+    flex: 1 1 calc(33.33% - 20px); /* 3 columns on medium screens */
+    max-width: calc(33.33% - 20px);
+  }
+}
+
+@media (max-width: 576px) {
+  .col {
+    flex: 1 1 100%; /* Single column on small screens */
+    max-width: 100%;
+  }
+}

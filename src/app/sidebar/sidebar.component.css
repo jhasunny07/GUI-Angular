@@ -761,4 +761,13 @@ input:checked + .slider:before {
 
 
 
-  
+
+
+.app-report {
+  color: #007bff;
+
+  transform: translate(29%, 0%);
+
+}
+
+ 

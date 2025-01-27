@@ -105,3 +105,6 @@
   --main-content-bg-color: #ecf0f1; /* Background color for the main content area */
   --text-light-color: #415053;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

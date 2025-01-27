@@ -1,0 +1,36 @@
+<div id="appDetail" class="app-detail container-fluid p-4">
+    <h2 class="text-center py-3">Internet Usage Report</h2>
+  
+    <!-- Underline Tab Navigation -->
+    <div class="underline-tabs d-flex justify-content-center">
+      <a
+        class="underline-tab"
+        [routerLink]="['date-wise']"
+        routerLinkActive="active-underline"
+        >Date wise usage report</a
+      >
+      <a
+        class="underline-tab"
+        [routerLink]="['RD']"
+        routerLinkActive="active-underline"
+        >Top 100 users by Data Transfer</a
+      >
+      <span class="underline-tab disabled-tab">Top 100 Surfing time users</span>
+      <a
+        class="underline-tab"
+        [routerLink]="['dns']"
+        routerLinkActive="active-underline"
+        >Top 100 packages by Data Transfer</a
+      >
+      <span class="underline-tab disabled-tab">Top 100 surfing time groups</span>
+  
+      <span class="underline-tab disabled-tab">Summary of Activity(User Sessions)</span>
+  
+    </div>
+  
+    <!-- Content Section -->
+    <div class="tab-content mt-4 p-4 shadow rounded bg-light">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  

@@ -1,0 +1,88 @@
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Date-wise Usage Report</h2>
+  
+    <!-- Date Filters -->
+    <div class="row mb-4">
+      <div class="col-md-6">
+        <label for="fromDate" class="form-label">From Date:</label>
+        <input
+          type="date"
+          id="fromDate"
+          class="form-control"
+          [(ngModel)]="fromDate"
+          (change)="filterData()"
+        />
+      </div>
+      <div class="col-md-6">
+        <label for="toDate" class="form-label">To Date:</label>
+        <input
+          type="date"
+          id="toDate"
+          class="form-control"
+          [(ngModel)]="toDate"
+          (change)="filterData()"
+        />
+      </div>
+    </div>
+  
+    <!-- Data View Option -->
+    <div class="row mb-4">
+      <div class="col-md-4">
+        <label for="itemsPerPage" class="form-label">Rows per page:</label>
+        <select
+          id="itemsPerPage"
+          class="form-select"
+          [(ngModel)]="itemsPerPage"
+          (change)="updatePagination()"
+        >
+          <option *ngFor="let option of itemsPerPageOptions" [value]="option">
+            {{ option }}
+          </option>
+        </select>
+      </div>
+    </div>
+  
+    <!-- Table -->
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Date</th>
+            <th>Data Transfer (MB)</th>
+            <th>Used Time</th>
+            <th>Effective Used Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of paginatedData; index as i">
+            <td>{{ i + 1 + (currentPage - 1) * itemsPerPage }}</td>
+            <td>{{ item.date }}</td>
+            <td>{{ item.dataTransfer }}</td>
+            <td>{{ item.surfingTime }}</td>
+            <td>{{ item.activityCount }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <!-- Pagination -->
+    <div class="d-flex justify-content-between align-items-center mt-3">
+      <button
+        class="btn btn-primary"
+        [disabled]="currentPage === 1"
+        (click)="previousPage()"
+      >
+        Previous
+      </button>
+      <span>Page {{ currentPage }} of {{ totalPages }}</span>
+      <button
+        class="btn btn-primary"
+        [disabled]="currentPage === totalPages"
+        (click)="nextPage()"
+      >
+        Next
+      </button>
+    </div>
+  </div>
+  

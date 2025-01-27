@@ -16,8 +16,8 @@ export class AppContentComponent {
     { name: 'Network', routerLink: '/list-of-items', icon: 'fas fa-network-wired' },
     { name: 'Firewall', routerLink: '/firewall', icon: 'fas fa-shield-alt' },
     { name: 'DHCP', routerLink: '/dhcp-management',  icon: 'fas fa-server' },
-    { name: 'Services', routerLink: '/ip-lease-report', icon: 'fas fa-cogs' },
-    { name: 'Console', href: '/', icon: 'fas fa-terminal' },
+    { name: 'Services', routerLink: '/', icon: 'fas fa-cogs' },
+    { name: 'Console', routerLink: '/', icon: 'fas fa-terminal' },
     { name: 'Manage Data', href: '/', icon: 'fas fa-database' },
     { name: 'Client Services', href: '/', icon: 'fas fa-users' },
     { name: 'ACL', href: '/', icon: 'fas fa-lock' },
@@ -40,10 +40,10 @@ export class AppContentComponent {
     { name: 'Tax Information', href: '/', icon: 'fas fa-file-invoice-dollar' },
   ];
 
-  Payment = [
+  Payment: { name: string; routerLink?: string; href?: string; icon: string }[] = [
     { name: 'Configure', href: '/', icon: 'fas fa-cogs' },
     { name: 'Merchant', href: '/', icon: 'fas fa-store' },
-    { name: 'Search Transaction', href: '/', icon: 'fas fa-search' },
+    { name: 'Search Transaction', routerLink: '/search-transaction', icon: 'fas fa-search' },
   ];
 
   Pin = [
@@ -77,8 +77,8 @@ export class AppContentComponent {
   displayed = {
     apps: [] as { name: string; routerLink?: string; href?: string; icon: string }[],
     policy: [] as { name: string; routerLink?: string; href?: string; icon: string }[],
-    package: [] as { name: string; href?: string; icon: string }[],
-    payment: [] as { name: string; href?: string; icon: string }[],
+    package: [] as { name: string;  routerLink?: string; href?: string; icon: string }[],
+    Payment: [] as { name: string; routerLink?: string; href?: string; icon: string }[],
     pin: [] as { name: string; href?: string; icon: string }[],
   };
 
@@ -97,13 +97,13 @@ export class AppContentComponent {
       this.displayed.apps = this.apps.slice(0, 8); // Show only the first 8 apps for mobile
       this.displayed.policy = this.Policy.slice(0, 8);
       this.displayed.package = this.Package.slice(0, 8);
-      this.displayed.payment = this.Payment.slice(0, 8);
+      this.displayed.Payment = this.Payment.slice(0, 8);
       this.displayed.pin = this.Pin.slice(0, 8);
     } else {
       this.displayed.apps = this.apps;
       this.displayed.policy = this.Policy;
       this.displayed.package = this.Package;
-      this.displayed.payment = this.Payment;
+      this.displayed.Payment = this.Payment;
       this.displayed.pin = this.Pin;
     }
   }
@@ -127,7 +127,7 @@ export class AppContentComponent {
       this.displayed.package = this.showAllPackage ? this.Package : this.Package.slice(0, 8);
     } else if (section === 'payment') {
       this.showAllPayment = !this.showAllPayment;
-      this.displayed.payment = this.showAllPayment ? this.Payment : this.Payment.slice(0, 8);
+      this.displayed.Payment = this.showAllPayment ? this.Payment : this.Payment.slice(0, 8);
     } else if (section === 'pin') {
       this.showAllPin = !this.showAllPin;
       this.displayed.pin = this.showAllPin ? this.Pin : this.Pin.slice(0, 8);

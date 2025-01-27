@@ -21,6 +21,21 @@
   </div>
 
 
+
+  <h3>Payment</h3>
+  <ul class="app-list  row gx-3 gy-4">
+    <li *ngFor="let payment of displayed.Payment; " class="col-2 col-sm-2 col-md-2 col-md-custom">
+      <a [routerLink]="payment.routerLink" class="app-item text-decoration-none d-block text-center">
+        <div class="app-icon  mx-auto mb-2">
+          <i [class]="payment.icon"></i>
+        </div>
+        <span class="app-name">{{ payment.name }}
+
+        </span>
+      </a>
+    </li>
+  </ul>
+
   <!-- Repeat similar structure for Policy, Package, Payment, and Pin sections -->
   <h3>Policy</h3>
   <ul class="app-list  row gx-3 gy-4">
@@ -67,18 +82,18 @@
   <!-- Payment Section -->
   <h3>Payment</h3>
   <ul class="app-list  row gx-3 gy-4">
-    <li *ngFor="let payment of Payment; " class="col-2 col-sm-2 col-md-2 col-md-custom">
-      <div class="app-item text-decoration-none d-block text-center">
+    <li *ngFor="let payment of displayed.Payment; " class="col-2 col-sm-2 col-md-2 col-md-custom">
+      <a [routerLink]="payment.routerLink" class="app-item text-decoration-none d-block text-center">
         <div class="app-icon  mx-auto mb-2">
           <i [class]="payment.icon"></i>
         </div>
         <span class="app-name">{{ payment.name }}
 
         </span>
-      </div>
+      </a>
     </li>
   </ul>
-  <div class="text-center" *ngIf="Payment.length > displayed.payment.length">
+  <div class="text-center" *ngIf="Payment.length > displayed.Payment.length">
     <button class="btn btn-primary btn-sm" (click)="toggleView('payment')">
       {{ showAllPayment ? 'View Less' : 'View All' }}
     </button>
@@ -104,6 +119,8 @@
     </button>
   </div>
 
+
+  
   <!-- Repeat similar structure for policy, package, payment, and pin -->
 
 </div>
