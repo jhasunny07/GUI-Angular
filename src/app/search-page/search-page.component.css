@@ -1,13 +1,76 @@
 .container {
-    max-width: 1200px;
-  }
-  
-  .table th {
-    cursor: pointer;
-  }
-  
-  .table th:hover {
-    background-color: #007bff;
-    color: #fff;
-  }
-  
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+form {
+  background: #00000030;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.5);
+}
+
+form .form-label {
+  font-weight: bold;
+}
+
+input, select, .btn {
+  border-radius: 8px;
+  box-shadow: inset 0px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+input:focus, select:focus {
+  box-shadow: 0px 0px 8px rgba(0, 123, 255, 0.5);
+  border-color: #007bff;
+}
+
+.btn {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+  background: linear-gradient(135deg, #0056b3, #003d82);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.table {
+  margin-top: 20px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.table th {
+  background: linear-gradient(135deg, #343a40, #495057);
+  color: #ffffff;
+  font-weight: bold;
+  text-align: center;
+  border: none;
+}
+
+.table th:hover {
+  background: linear-gradient(135deg, #495057, #343a40);
+  cursor: pointer;
+}
+
+.table td {
+  text-align: center;
+  vertical-align: middle;
+  border: none;
+}
+
+.table tbody tr:hover {
+  background: #f8f9fa;
+  transform: scale(1.01);
+  transition: all 0.2s ease-in-out;
+}
+
+.form-check-input:checked {
+  box-shadow: 0 0 4px 2px rgba(0, 123, 255, 0.5);
+}

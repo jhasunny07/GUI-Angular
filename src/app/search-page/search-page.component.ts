@@ -11,14 +11,16 @@ import { FormsModule } from '@angular/forms';
 })
 export class SearchPageComponent {
     searchCriteria = {
-    fromDate: '',
-    toDate: '',
+      fromDate: this.getToday(),
+      toDate: this.getToday(),
     transactionId: '',
     username: '',
     paymentGateway: '',
     transactionStatus: 'all',
     ignoreDateFilter: false
   };
+
+ 
 
   paymentGateways = ['PayPal', 'Stripe', 'Razorpay', 'PayU', 'Square'];
 
@@ -64,6 +66,13 @@ export class SearchPageComponent {
 
   transactions = [...this.allTransactions]; // Filtered transactions to display in the table
 
+  getToday(): string {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const day = String(today.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  }
   search() {
     // Reset the displayed transactions to the full list
     this.transactions = [...this.allTransactions];
