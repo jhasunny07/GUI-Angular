@@ -20,6 +20,8 @@ import { DateWiseReportComponent } from './date-wise-report/date-wise-report.com
 import { ReportComponent } from './report/report.component';
 import { InternetUsageReportComponent } from './internet-usage-report/internet-usage-report.component';
 import { ReportDashboardComponent } from './report-dashboard/report-dashboard.component';
+import { BackupComponent } from './backup/backup.component';
+import { BackupRestoreComponent } from './backup-restore/backup-restore.component';
 
 
 export const appRoutes: Routes = [
@@ -90,6 +92,8 @@ export const appRoutes: Routes = [
   { path: 'report/Date-wise Usage Report', component: DateWiseReportComponent },
 
 { path: 'report', component: ReportComponent },
+{ path: 'backup', component: BackupComponent },
+{ path: 'backup-restore', component: BackupRestoreComponent },
 {path: 'report/1', component: InternetUsageReportComponent },
   { path: 'firewall-manage', component: FirewallManageComponent},
   { path: 'CreateSurfingQuotaPolicy', component: CreateSurfingQuotaPolicyComponent },

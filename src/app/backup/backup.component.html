@@ -1,0 +1,76 @@
+<!-- backup.component.html -->
+<div class="">
+    <!-- Backup System Data Section -->
+    <div class="card shadow-lg mb-4">
+      <div class="card-header bg-dark text-white text-center py-3">
+        <h5 class="mb-0">Backup System Data</h5>
+      </div>
+      <div class="card-body text-center">
+        <p class="text-muted">Does not include Logs and User Session.</p>
+        <button class="btn btn-dark btn-lg mb-3">
+          <i class="fas fa-database"></i> Take Backup of System Data Till Date
+        </button>
+        <p>
+          <a href="#" class="btn btn-link text-dark">
+            <i class="fas fa-download"></i> Download last backup created on Sep 9, 2021, 10:26 PM
+          </a>
+        </p>
+      </div>
+    </div>
+  
+    <!-- Backup User Session Section -->
+    <div class="card shadow-lg mb-4">
+      <div class="card-header bg-dark text-white text-center py-3">
+        <h5 class="mb-0">Backup User Session</h5>
+      </div>
+      <div class="card-body text-center">
+        <p class="text-muted">Previous date User Session data is not available on the server.</p>
+        <button class="btn btn-dark btn-lg">
+          <i class="fas fa-user-clock"></i> Take Backup of User Session
+        </button>
+      </div>
+    </div>
+  
+    <!-- Backup RRD Section -->
+    <div class="card shadow-lg mb-4">
+      <div class="card-header bg-dark text-white text-center py-3">
+        <h5 class="mb-0">Backup RRD</h5>
+      </div>
+      <div class="card-body text-center">
+        <p class="text-muted ">Take Backup of RRDs till date.</p>
+        <div class="container mt-5">
+            <div class="folder">
+              <div class="front-side">
+                <div class="tip"></div>
+                <div class="cover"></div>
+              </div>
+              <div class="back-side cover"></div>
+            </div>
+            <label class="custom-file-upload">
+              <input type="file" />
+              Choose a file
+            </label>
+          </div>
+        <p>
+          <a href="#" class="btn btn-link text-dark">
+            <i class="fas fa-download"></i> Download last RRD backup created on Aug 29, 2021, 08:38 PM
+          </a>
+        </p>
+      </div>
+    </div>
+  
+    <!-- Drag-and-Drop Zone with Stylish Folder Animation -->
+    <div class="container">
+      <div class="folder">
+        <div class="front-side">
+          <div class="tip"></div>
+          <div class="cover"></div>
+        </div>
+        <div class="back-side cover"></div>
+      </div>
+      <label class="custom-file-upload">
+        <input type="file" />
+        Choose a file
+      </label>
+    </div>
+  </div>
