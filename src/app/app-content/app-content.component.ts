@@ -20,7 +20,7 @@ export class AppContentComponent {
     { name: 'Console', routerLink: '/backup', icon: 'fas fa-terminal' },
     { name: 'Manage Data', routerLink: '/backup-restore', icon: 'fas fa-database' },
     { name: 'Client Services', href: '/', icon: 'fas fa-users' },
-    { name: 'ACL', href: '/', icon: 'fas fa-lock' },
+    { name: 'ACL', routerLink: '/access-control', icon: 'fas fa-lock' },
     { name: 'Dynamic DNS Service', href: '/', icon: 'fas fa-globe' },
     { name: 'Captive Portal', href: '/', icon: 'fas fa-wifi' },
     { name: 'NAS Management', href: '/', icon: 'fas fa-hdd' },

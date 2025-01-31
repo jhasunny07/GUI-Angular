@@ -12,6 +12,8 @@ import { FormsModule } from '@angular/forms';
   imports: [CommonModule, FormsModule]
 })
 export class InterfaceComponent {
+
+  
   // Sample data for interfaces, now includes IPv6
   interfaces = [
     { name: 'eth0', ip: '10.10.10.1', ipv6: 'fe80::1', netmask: '255.255.255.0', description: 'Internal Network' },

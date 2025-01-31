@@ -22,6 +22,7 @@ import { InternetUsageReportComponent } from './internet-usage-report/internet-u
 import { ReportDashboardComponent } from './report-dashboard/report-dashboard.component';
 import { BackupComponent } from './backup/backup.component';
 import { BackupRestoreComponent } from './backup-restore/backup-restore.component';
+import { AccessControlComponent } from './access-control/access-control.component';
 
 
 export const appRoutes: Routes = [
@@ -94,6 +95,7 @@ export const appRoutes: Routes = [
 { path: 'report', component: ReportComponent },
 { path: 'backup', component: BackupComponent },
 { path: 'backup-restore', component: BackupRestoreComponent },
+{ path: 'access-control', component: AccessControlComponent },
 {path: 'report/1', component: InternetUsageReportComponent },
   { path: 'firewall-manage', component: FirewallManageComponent},
   { path: 'CreateSurfingQuotaPolicy', component: CreateSurfingQuotaPolicyComponent },

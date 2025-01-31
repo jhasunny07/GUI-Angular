@@ -1,0 +1,144 @@
+<div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-md-10 col-lg-8">
+        <div class="card shadow-sm rounded-4 bg-gradient-to-r from-indigo-50 to-teal-50 text-dark border-0">
+          <div class="card-header bg-transparent text-dark text-center p-4">
+            <h3 class="fw-bold fs-2">Advanced Access Control</h3>
+            <p class="mb-0">Effortlessly manage access levels for your system</p>
+          </div>
+          <div class="card-body p-4">
+            <div class="form-group mb-4">
+              <label for="userType" class="form-label fs-5 text-dark">Select User Type</label>
+              <select id="userType" class="form-select fs-5 p-3 bg-light text-dark border-0 shadow-sm rounded-3" [(ngModel)]="selectedUserType">
+                <option *ngFor="let type of userTypes" [value]="type">{{ type }}</option>
+              </select>
+            </div>
+  
+            <div *ngIf="selectedUserType">
+              <div class="table-responsive">
+                <table class="table table-modern table-striped table-hover table-bordered border-0 rounded-3">
+                  <thead class="text-center text-dark">
+                    <tr>
+                      <th>Modules</th>
+                      <th>Allow</th>
+                      <th>Edit</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let module of modules" class="text-center table-row">
+                      <td class="text-dark">{{ module.name }}</td>
+                      <td>
+                        <div class="checkbox-wrapper-51 " style="display: flex; justify-content: center;">
+                          <input 
+                            id="cbx-{{module.name}}" 
+                            type="checkbox" 
+                            [(ngModel)]="module.allowed" 
+                            (change)="togglePermission(module)">
+                          <label class="toggle" for="cbx-{{module.name}}">
+                            <span>
+                              <svg viewBox="0 0 10 10" height="10px" width="10px">
+                                <path d="M5,1 L5,1 C2.790861,1 1,2.790861 1,5 L1,5 C1,7.209139 2.790861,9 5,9 L5,9 C7.209139,9 9,7.209139 9,5 L9,5 C9,2.790861 7.209139,1 5,1 L5,9 L5,1 Z"></path>
+                              </svg>
+                            </span>
+                          </label>
+                        </div>
+                      </td>
+                      
+                      <td>
+                        <button class="btn btn-primary btn-lg px-4 py-2" (click)="openEditModal(module)" [disabled]="!module.allowed">
+                          Edit
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+  
+            <!-- Modal for Editing Nested Permissions -->
+            <div class="modal fade show" *ngIf="isModalOpen" style="display: block;" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content rounded-4 bg-light">
+                  <div class="modal-header border-0">
+                    <h5 class="modal-title fs-4 fw-semibold text-teal-500" id="exampleModalLabel">Edit Permissions for {{ selectedModule?.name }}</h5>
+                    <button type="button" class="btn-close text-dark" (click)="closeModal()" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body px-5 py-4">
+                    <div class="table-responsive">
+                      <table class="table table-modern table-striped table-hover table-bordered border-0">
+                        <thead class="text-dark">
+                          <tr>
+                            <th>Access</th>
+                            <th>View</th>
+                            <th>Create</th>
+                            <th>Update</th>
+                            <th>Delete</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let permission of selectedModule?.permissions">
+                            <td class="text-dark">{{ permission.name }}</td>
+                            <td>
+                              <!-- Replacing the default checkbox with your custom checkbox -->
+                              <div class="checkbox-wrapper">
+                                <input type="checkbox" [(ngModel)]="permission.view">
+                                <svg viewBox="0 0 35.6 35.6">
+                                  <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+                                  <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+                                  <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+                                </svg>
+                              </div>
+                            </td>
+                            <td>
+                              <!-- Replacing the default checkbox with your custom checkbox -->
+                              <div class="checkbox-wrapper">
+                                <input type="checkbox" [(ngModel)]="permission.create">
+                                <svg viewBox="0 0 35.6 35.6">
+                                  <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+                                  <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+                                  <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+                                </svg>
+                              </div>
+                            </td>
+                            <td>
+                              <!-- Replacing the default checkbox with your custom checkbox -->
+                              <div class="checkbox-wrapper">
+                                <input type="checkbox" [(ngModel)]="permission.update">
+                                <svg viewBox="0 0 35.6 35.6">
+                                  <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+                                  <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+                                  <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+                                </svg>
+                              </div>
+                            </td>
+                            <td>
+                              <!-- Replacing the default checkbox with your custom checkbox -->
+                              <div class="checkbox-wrapper">
+                                <input type="checkbox" [(ngModel)]="permission.delete">
+                                <svg viewBox="0 0 35.6 35.6">
+                                  <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+                                  <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+                                  <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+                                </svg>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <div class="modal-footer border-0">
+                    <button type="button" class="btn btn-secondary btn-lg" (click)="closeModal()">Cancel</button>
+                    <button type="button" class="btn btn-primary btn-lg" (click)="updatePermissions()">Update</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+            <!-- Background Blur -->
+            <div *ngIf="isModalOpen" class="modal-backdrop fade show"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
