@@ -16,7 +16,7 @@ export class AppContentComponent {
     { name: 'Network', routerLink: '/list-of-items', icon: 'fas fa-network-wired' },
     { name: 'Firewall', routerLink: '/firewall', icon: 'fas fa-shield-alt' },
     { name: 'DHCP', routerLink: '/dhcp-management',  icon: 'fas fa-server' },
-    { name: 'Services', routerLink: '/', icon: 'fas fa-cogs' },
+    { name: 'Services', routerLink: '/user-management', icon: 'fas fa-cogs' },
     { name: 'Console', routerLink: '/backup', icon: 'fas fa-terminal' },
     { name: 'Manage Data', routerLink: '/backup-restore', icon: 'fas fa-database' },
     { name: 'Client Services', href: '/', icon: 'fas fa-users' },

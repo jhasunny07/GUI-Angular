@@ -1,0 +1,24 @@
+{
+  "users": [
+    {
+      "id": "1e52",
+      "name": "Sunny ",
+      "email": "sjdhajdhgsahdgasd@example.com"
+    },
+    {
+      "id": "e7a1",
+      "name": "Sunny Jha",
+      "email": "Sunnyjha@example.com"
+    },
+    {
+      "id": "4421",
+      "name": "Hello",
+      "email": "hjasdg@ahgdshsa.com"
+    },
+    {
+      "id": "603e",
+      "name": "Sunny Jha",
+      "email": "sunny@example.com"
+    }
+  ]
+}

@@ -23,6 +23,7 @@ import { ReportDashboardComponent } from './report-dashboard/report-dashboard.co
 import { BackupComponent } from './backup/backup.component';
 import { BackupRestoreComponent } from './backup-restore/backup-restore.component';
 import { AccessControlComponent } from './access-control/access-control.component';
+import { UserManagementComponent } from './user-management/user-management.component';
 
 
 export const appRoutes: Routes = [
@@ -31,6 +32,7 @@ export const appRoutes: Routes = [
   { path: 'interface', component: InterfaceComponent },
   { path: 'dhcp', component: DhcpPageComponent },
   { path: 'ip-lease-report', component: IpLeaseReportComponent },
+  {path: 'user-management', component: UserManagementComponent },
   
   {
     path: 'list-of-items',

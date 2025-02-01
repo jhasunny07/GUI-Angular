@@ -1,0 +1,31 @@
+<div class="container">
+    <h2>User Management</h2>
+  
+    <!-- Add User Button -->
+    <button class="btn btn-primary mb-3" (click)="addUser()">Add User</button>
+  
+    <!-- Users Table -->
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td>
+          <td>
+            <!-- Edit User -->
+            <button class="btn btn-warning btn-sm" (click)="editUser(user.id)">Edit</button>
+            
+            <!-- Delete User -->
+            <button class="btn btn-danger btn-sm" (click)="removeUser(user.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

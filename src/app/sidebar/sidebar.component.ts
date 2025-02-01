@@ -2,14 +2,14 @@ import { Component, ElementRef, Renderer2, OnInit, OnDestroy } from '@angular/co
 import { CommonModule } from '@angular/common';
 import { AppContentComponent } from '../app-content/app-content.component';
 import { Router, NavigationStart, RouterModule, NavigationEnd } from '@angular/router';
-import { ReportComponent } from '../report/report.component';
+
 
 @Component({
   selector: 'app-sidebar',
   standalone: true,
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css'],
-  imports: [CommonModule, AppContentComponent, RouterModule, ReportComponent],
+  imports: [CommonModule, AppContentComponent, RouterModule],
 })
 export class SidebarComponent implements OnInit, OnDestroy {
   darkMode = false;
